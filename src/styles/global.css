@@ -327,6 +327,13 @@ main {
   max-width: var(--measure);
   grid-column: 2;
 }
+.framework__hedge {
+  margin-top: calc(var(--spacing) * 14);
+  color: var(--color-muted);
+  font-size: var(--fs-sm);
+  max-width: var(--measure-narrow);
+  font-style: italic;
+}
 
 /* §5 Deeper question: narrower, optional accent rule */
 .deeper {
