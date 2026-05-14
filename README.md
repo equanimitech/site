@@ -17,9 +17,6 @@ Design system inherits from `zenborg`: stone monochrome base, OKLCH colors, CSS 
 
 ## Pending Rafa input
 
-- §1 opening line (placeholder marked `<!-- §1 OPENING — pending Rafa -->`)
-- §6 standpoint copy review
-- §9 contact email confirmation (default `rafa@equanimi.tech`)
 - §10 social links (Substack, GitHub, LinkedIn) + page source URL
 - §4 primer link, §7 product links, §8 reading links
 

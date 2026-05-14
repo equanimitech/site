@@ -1,42 +1,75 @@
 ---
-// Decorative ASCII pyramid with accessible text alternative.
-// Layers top→bottom: Equanimity (outcome), Awareness (practice), Sovereignty (foundation).
+// SVG pyramid with accessible <ol> alternative.
+// Layers top→bottom: Equanimity (outcome, narrowest), Awareness (practice),
+// Sovereignty (foundation, widest).
 const layers = [
   {
+    key: "eq",
     name: "Equanimity",
     role: "outcome",
     principles: ["Strategic Friction", "Fade-by-Design", "Downstream Allocation"],
   },
   {
+    key: "aw",
     name: "Awareness",
     role: "practice",
     principles: ["Peripheral Presence", "Attentional Granularity", "Bounded Experiences"],
   },
   {
+    key: "so",
     name: "Sovereignty",
     role: "foundation",
     principles: ["Local-First Ownership", "Holistic Control", "Modification Rights"],
   },
 ];
+
+// SVG geometry. viewBox 0 0 600 360.
+// Layer widths: top 40%, middle 70%, base 100% of usable width (520, centered).
+// Three trapezoids stacked, 1px stroke, no fill.
+// Heights: equal layer height = 100. Total stack 300, with 30 padding top/bottom.
+// Center x = 300. Usable max half-width = 260.
+// Widths: top 0.40 → half 104; mid 0.70 → half 182; base 1.00 → half 260.
+// Top layer trapezoid: between half-widths 60 (top edge) and 104 (bottom edge).
+// To keep slope continuous, top-edge of upper = bottom-edge of layer above. So:
+//   Equanimity:   top half-w = 44,  bottom half-w = 104  (y: 30 → 130)
+//   Awareness:    top half-w = 104, bottom half-w = 182  (y: 130 → 230)
+//   Sovereignty:  top half-w = 182, bottom half-w = 260  (y: 230 → 330)
+// (Slopes nearly continuous; we tweak top apex to 44 for a softer tip.)
 ---
-<figure class="pyramid">
-  <pre class="pyramid__ascii" aria-hidden="true">
-              /\
-             /  \
-            / EQ \
-           /------\
-          /        \
-         /    AW    \
-        /------------\
-       /              \
-      /       SO       \
-     /__________________\
-  </pre>
+<figure class="pyramid" data-pyramid>
+  <svg
+    class="pyramid__svg"
+    viewBox="0 0 600 360"
+    role="presentation"
+    aria-hidden="true"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <g stroke="currentColor" stroke-width="1" stroke-linejoin="round" fill="transparent">
+      {/* Equanimity (top) */}
+      <g class="pyramid__layer" data-layer="eq">
+        <polygon points="256,30 344,30 404,130 196,130" />
+        <text x="300" y="86" text-anchor="middle" class="pyramid__label">EQUANIMITY</text>
+      </g>
+      {/* Awareness (middle) */}
+      <g class="pyramid__layer" data-layer="aw">
+        <polygon points="196,130 404,130 482,230 118,230" />
+        <text x="300" y="186" text-anchor="middle" class="pyramid__label">AWARENESS</text>
+      </g>
+      {/* Sovereignty (base) */}
+      <g class="pyramid__layer" data-layer="so">
+        <polygon points="118,230 482,230 560,330 40,330" />
+        <text x="300" y="286" text-anchor="middle" class="pyramid__label">SOVEREIGNTY</text>
+      </g>
+    </g>
+  </svg>
 
   <ol class="pyramid__layers" aria-label="Three layers of the equanimitech framework, top to bottom">
     {layers.map((l) => (
-      <li class="layer">
-        <p class="layer__name">{l.name} <span class="layer__role">— {l.role}</span></p>
+      <li class="layer" data-layer={l.key}>
+        <p class="layer__name">
+          <span class="layer__name-text">{l.name}</span>
+          <span class="layer__role">— {l.role}</span>
+        </p>
         <ul class="layer__principles" aria-label={`${l.name} principles`}>
           {l.principles.map((p) => <li>{p}</li>)}
         </ul>
