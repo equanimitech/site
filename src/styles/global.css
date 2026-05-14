@@ -448,7 +448,7 @@ main {
     animation: equi-fade-in 360ms var(--ease-smooth) forwards;
   }
   .masthead        { animation-delay: 0ms; }
-  #reversal        { animation-delay: 120ms; }
+  #premise         { animation-delay: 120ms; }
   #thesis          { animation-delay: 200ms; }
   #framework       { animation-delay: 280ms; }
   #measurement     { animation-delay: 360ms; }
