@@ -1,7 +1,6 @@
 ---
 import "../styles/global.css";
 import Section from "../components/Section.astro";
-import Pyramid from "../components/Pyramid.astro";
 import Project from "../components/Project.astro";
 
 const title = "equanimi.tech";
@@ -77,43 +76,68 @@ const description =
 
       {/* §4 Framework */}
       <Section id="framework" eyebrow="The framework">
-        <p class="prose"><span>Three layers, each depending on the one below. Nine principles. Each with a design test.</span></p>
+        <p class="prose">
+          Nine principles in three layers. Each with a design test. A design
+          hypothesis, not a validated causal model: the principles create the
+          structural conditions under which equanimity can emerge. They do
+          not produce it.
+        </p>
 
-        <Pyramid />
+        <div class="principles">
+          <section class="principles__layer">
+            <p class="principles__layer-name">Sovereignty</p>
+            <ol class="principles__list">
+              <li class="principle">
+                <p class="principle__name">Local-First Ownership</p>
+                <p class="principle__test">Does this work offline? If our servers shut down, does the tool keep working?</p>
+              </li>
+              <li class="principle">
+                <p class="principle__name">Holistic Control</p>
+                <p class="principle__test">Can the user disable any feature without breaking the whole?</p>
+              </li>
+              <li class="principle">
+                <p class="principle__name">Modification Rights</p>
+                <p class="principle__test">Can a technical user fork it? Can a non-technical user freeze the version?</p>
+              </li>
+            </ol>
+          </section>
 
-        <div class="principle-tests" aria-label="Example principles">
-          <div class="principle-test">
-            <p class="principle-test__name">
-              Local-First Ownership <span class="layer-tag">(Sovereignty)</span>
-            </p>
-            <p class="principle-test__q">
-              Does this work offline? If our servers shut down tomorrow, does the
-              tool keep working?
-            </p>
-          </div>
-          <div class="principle-test">
-            <p class="principle-test__name">
-              Bounded Experiences <span class="layer-tag">(Awareness)</span>
-            </p>
-            <p class="principle-test__q">
-              Does this interaction have a natural end? If the user stops, is that
-              a feature?
-            </p>
-          </div>
-          <div class="principle-test">
-            <p class="principle-test__name">
-              Fade-by-Design <span class="layer-tag">(Equanimity)</span>
-            </p>
-            <p class="principle-test__q">
-              Success means the user needs the tool less over time, through
-              internalization. If a user stopped using this after six months, would
-              we celebrate or panic?
-            </p>
-          </div>
+          <section class="principles__layer">
+            <p class="principles__layer-name">Awareness</p>
+            <ol class="principles__list" start="4">
+              <li class="principle">
+                <p class="principle__name">Peripheral Presence</p>
+                <p class="principle__test">Can the user safely ignore this for hours?</p>
+              </li>
+              <li class="principle">
+                <p class="principle__name">Attentional Granularity</p>
+                <p class="principle__test">Does content depth track attentional depth, gross to subtle?</p>
+              </li>
+              <li class="principle">
+                <p class="principle__name">Bounded Experiences</p>
+                <p class="principle__test">Does this interaction have a natural end? If the user stops, is that a feature?</p>
+              </li>
+            </ol>
+          </section>
+
+          <section class="principles__layer">
+            <p class="principles__layer-name">Equanimity</p>
+            <ol class="principles__list" start="7">
+              <li class="principle">
+                <p class="principle__name">Strategic Friction</p>
+                <p class="principle__test">Compulsive path harder, intentional path easier.</p>
+              </li>
+              <li class="principle">
+                <p class="principle__name">Fade-by-Design</p>
+                <p class="principle__test">The user needs the tool less over time, through internalization. If a user stopped after six months, would we celebrate or panic?</p>
+              </li>
+              <li class="principle">
+                <p class="principle__name">Downstream Allocation</p>
+                <p class="principle__test">The user fills the slots. Recommender systems are upstream allocators; whiteboards with magnets are downstream.</p>
+              </li>
+            </ol>
+          </section>
         </div>
-
-        {/* pending-URL: link to full primer */}
-        <p><a href="#">Read the primer →</a></p>
       </Section>
 
       {/* §5 Deeper question */}
@@ -144,11 +168,9 @@ const description =
             tagline="Ambient context for AI, stamped by humans."
             body="The substrate for autonomous work where agents draft at volume, humans vouch for what matters, and no vendor sits in the middle. Local-first. Filesystem-authoritative. Built in the open."
             links={[
-              { label: "Docs", href: "#" },
-              { label: "GitHub", href: "#" },
+              { label: "GitHub", href: "https://github.com/equanimitech/secretariat" },
             ]}
           />
-          {/* pending-URL: Secretariat docs + GitHub */}
 
           <Project
             category="Awareness"
@@ -156,35 +178,10 @@ const description =
             tagline="The whiteboard, made software."
             body="Plan your day in three-word moments. Three at a time, three times a day, three days ahead. No streaks, no scores, no notifications. The constraints are the point."
             links={[
-              { label: "Try it", href: "#" },
-              { label: "Download", href: "#" },
+              { label: "GitHub", href: "https://github.com/Thopiax/zenborg" },
             ]}
           />
-          {/* pending-URL: Zenborg web + download */}
         </div>
-      </Section>
-
-      {/* §7 Writing (was Reading) */}
-      <Section id="reading" eyebrow="Writing">
-        <p class="prose">The lab's writing carries as much of the discipline as the projects.</p>
-
-        <ul class="reading-list" style="margin-top: calc(var(--spacing) * 8);">
-          <li>
-            {/* pending-URL: Three Poisons of Engagement */}
-            <a href="#"><span class="title">Three Poisons of Engagement</span></a>
-            <span class="meta">The diagnosis, in three parts.</span>
-          </li>
-          <li>
-            {/* pending-URL: Primer v0.2 */}
-            <a href="#"><span class="title">Equanimitech Primer v0.2</span></a>
-            <span class="meta">The full framework. Nine principles. The measurement gap.</span>
-          </li>
-          <li>
-            {/* pending-URL: Mindful Cyborg */}
-            <a href="#"><span class="title">Mindful Cyborg</span></a>
-            <span class="meta">Ongoing essays.</span>
-          </li>
-        </ul>
       </Section>
 
       {/* §8 Door */}
@@ -205,30 +202,17 @@ const description =
         <div class="footer__cols">
           <div class="footer__col">
             <p class="footer__head">Research</p>
-            {/* pending-URL: Secretariat */}
-            <p><a href="#">Secretariat</a></p>
-            {/* pending-URL: Zenborg */}
-            <p><a href="#">Zenborg</a></p>
-          </div>
-          <div class="footer__col">
-            <p class="footer__head">Writing</p>
-            {/* pending-URL: Three Poisons */}
-            <p><a href="#">Three Poisons of Engagement</a></p>
-            {/* pending-URL: Primer v0.2 */}
-            <p><a href="#">Equanimitech Primer v0.2</a></p>
-            {/* pending-URL: Mindful Cyborg / Substack */}
-            <p><a href="#">Mindful Cyborg</a></p>
+            <p><a href="https://github.com/equanimitech/secretariat">Secretariat</a></p>
+            <p><a href="https://github.com/Thopiax/zenborg">Zenborg</a></p>
           </div>
           <div class="footer__col">
             <p class="footer__head">Contact</p>
             <p><a href="mailto:rafaba@hey.com">rafaba@hey.com</a></p>
-            {/* pending-URL: GitHub org */}
-            <p><a href="#">GitHub</a></p>
+            <p><a href="https://github.com/equanimitech">GitHub</a></p>
           </div>
         </div>
         <p class="footer__base">
-          Equanimitech, an independent research lab. 2026. Page source on
-          {" "}<a href="#">GitHub</a>.
+          Equanimitech, an independent research lab. 2026.
         </p>
       </div>
     </footer>
