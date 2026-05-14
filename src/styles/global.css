@@ -470,14 +470,13 @@ main {
   }
   .masthead        { animation-delay: 0ms; }
   .hero            { animation-delay: 80ms; }
-  #tldr            { animation-delay: 200ms; }
-  #thesis          { animation-delay: 280ms; }
-  #framework       { animation-delay: 360ms; }
-  #measurement     { animation-delay: 440ms; }
-  #deeper          { animation-delay: 520ms; }
-  #work            { animation-delay: 600ms; }
-  #door            { animation-delay: 680ms; }
-  .footer          { animation-delay: 760ms; }
+  #thesis          { animation-delay: 200ms; }
+  #framework       { animation-delay: 280ms; }
+  #measurement     { animation-delay: 360ms; }
+  #deeper          { animation-delay: 440ms; }
+  #work            { animation-delay: 520ms; }
+  #door            { animation-delay: 600ms; }
+  .footer          { animation-delay: 680ms; }
 
   /* Wordmark dot: single soft pulse on load. */
   @keyframes equi-dot-pulse {
