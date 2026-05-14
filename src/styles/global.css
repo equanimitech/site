@@ -170,28 +170,25 @@ main {
 .prose p { max-width: var(--measure); }
 .prose p + p { margin-top: 1.25em; }
 
-/* §1 Opening: display */
-.opening {
-  min-height: 60dvh;
-  display: flex;
-  align-items: center;
-  padding-block: 0;
-}
-.opening__text {
-  font-size: var(--fs-2xl);
-  font-weight: 400;
-  line-height: 1.1;
-  letter-spacing: -0.025em;
-  max-width: 22ch;
-  color: var(--color-text);
-}
-
-/* Masthead: wordmark + tagline (top-left identity, no nav) */
+/* Masthead: opening line as page-opener, then lab identity below */
 .masthead {
   max-width: 72ch;
   margin-inline: auto;
   padding-inline: var(--page-pad-x);
-  padding-block: clamp(2rem, 5vw, 3.5rem) 0;
+  padding-block: clamp(3rem, 8vw, 6rem) 0;
+}
+.opening__text {
+  font-size: var(--fs-3xl);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  max-width: 18ch;
+  color: var(--color-text);
+  margin-bottom: clamp(3rem, 8vw, 6rem);
+}
+.masthead__identity {
+  border-top: 1px solid var(--color-rule);
+  padding-top: calc(var(--spacing) * 6);
 }
 .wordmark {
   font-family: var(--font-mono);
@@ -365,7 +362,7 @@ main {
   flex-wrap: wrap;
   gap: 0.25em 1em;
 }
-.project__links a { color: var(--stone-700); }
+.project__links a { color: var(--color-text); }
 
 /* §9 Door */
 .door__email {
@@ -442,15 +439,14 @@ main {
     animation: equi-fade-in 360ms var(--ease-smooth) forwards;
   }
   .masthead        { animation-delay: 0ms; }
-  #opening         { animation-delay: 80ms; }
-  #reversal        { animation-delay: 160ms; }
-  #thesis          { animation-delay: 240ms; }
-  #framework       { animation-delay: 320ms; }
-  #measurement     { animation-delay: 400ms; }
-  #deeper          { animation-delay: 480ms; }
-  #work            { animation-delay: 560ms; }
-  #door            { animation-delay: 640ms; }
-  .footer          { animation-delay: 720ms; }
+  #reversal        { animation-delay: 120ms; }
+  #thesis          { animation-delay: 200ms; }
+  #framework       { animation-delay: 280ms; }
+  #measurement     { animation-delay: 360ms; }
+  #deeper          { animation-delay: 440ms; }
+  #work            { animation-delay: 520ms; }
+  #door            { animation-delay: 600ms; }
+  .footer          { animation-delay: 680ms; }
 
   /* Wordmark dot: single soft pulse on load. */
   @keyframes equi-dot-pulse {
@@ -479,4 +475,33 @@ main {
     animation-delay: 0ms !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* Scroll-driven emphasis: body prose starts faint, brightens through center of view.
+   Reverses on scroll-back (timeline-bound). Modern browsers only; gracefully ignored elsewhere. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    @keyframes equi-prose-emphasize {
+      from { color: var(--color-faint); }
+      to   { color: var(--color-text); }
+    }
+    .prose p {
+      animation: equi-prose-emphasize linear both;
+      animation-timeline: view();
+      animation-range: cover 10% cover 55%;
+    }
+  }
+}
+
+/* Dark mode: invert semantic vars; OKLCH stays perceptually uniform. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: var(--stone-900);
+    --color-text: oklch(0.95 0.004 60);
+    --color-muted: var(--stone-400);
+    --color-faint: var(--stone-700);
+    --color-rule: var(--stone-800);
+    --color-accent: oklch(0.78 0.10 60);
+  }
+  html { color-scheme: dark; }
 }

@@ -14,7 +14,7 @@ const description =
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="color-scheme" content="light" />
+    <meta name="color-scheme" content="light dark" />
     <meta name="robots" content="index,follow" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
@@ -31,17 +31,15 @@ const description =
   </head>
   <body>
     <header class="masthead">
-      <p class="wordmark">equanimi<span class="dot">.</span>tech</p>
-      <p class="tagline">An independent research lab exploring technology that nurtures equanimity.</p>
-      <p class="research-q">Can we design interfaces that sustain and cultivate equanimity?</p>
+      <p id="opening" class="opening__text">We, the users, are being used.</p>
+      <div class="masthead__identity">
+        <p class="wordmark">equanimi<span class="dot">.</span>tech</p>
+        <p class="tagline">An independent research lab exploring technology that nurtures equanimity.</p>
+        <p class="research-q">Can we design interfaces that sustain and cultivate equanimity?</p>
+      </div>
     </header>
 
     <main>
-      {/* §1 OPENING */}
-      <Section id="opening" className="opening">
-        <p class="opening__text">We, the users, are being used.</p>
-      </Section>
-
       {/* §2 Reversal */}
       <Section id="reversal" eyebrow="The reversal">
         <div class="prose">
