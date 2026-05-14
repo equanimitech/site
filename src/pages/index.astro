@@ -6,7 +6,7 @@ import Project from "../components/Project.astro";
 
 const title = "equanimi.tech";
 const description =
-  "The design discipline for what comes after engagement. Technology in which equanimity can survive contact with the digital world.";
+  "An independent research lab on the design of technology that cultivates equanimity.";
 ---
 <!doctype html>
 <html lang="en">
@@ -31,9 +31,12 @@ const description =
     />
   </head>
   <body>
-    <main>
+    <header class="masthead">
       <p class="wordmark">equanimi<span class="dot">.</span>tech</p>
+      <p class="tagline">An independent research lab on the design of technology that cultivates equanimity.</p>
+    </header>
 
+    <main>
       {/* §1 OPENING */}
       <Section id="opening" className="opening">
         <p class="opening__text">Attention is all they need.<br/>Equanimity is what we deserve.</p>
@@ -43,7 +46,7 @@ const description =
       <Section id="reversal" eyebrow="The reversal">
         <div class="prose">
           <p>
-            Engagement was a measurement choice. Click, dwell, share, convert —
+            Engagement was a measurement choice. Click, dwell, share, convert:
             easy to count, easy to optimize, easy to sell. Over a decade, the
             metric became the product, and the product became the air we breathe.
           </p>
@@ -51,11 +54,11 @@ const description =
             Calm Technology asked us to design for the periphery. Humane Tech
             asked us to stop hijacking attention. Convivial Tech asked who
             serves whom. Each named a piece of what's wrong. None named what
-            happens next — when AI fills the periphery, smooths the hijacking,
+            happens next, when AI fills the periphery, smooths the hijacking,
             and hides the seams.
           </p>
           <p>
-            Equanimitech is the discipline for what comes after. Not mindfulness
+            Equanimitech is the research lab for what comes after. Not mindfulness
             apps. Not screen-time dashboards. Technology in which equanimity can
             survive contact with the digital world.
           </p>
@@ -66,9 +69,9 @@ const description =
       <Section id="thesis" eyebrow="The thesis">
         <blockquote class="thesis">
           Engagement couples wanting to what feels good. Equanimity decouples
-          them — wanting driven by values. The gap between sensation and reaction
+          them. Wanting driven by values. The gap between sensation and reaction
           is where choice lives. Most technology closes it. Equanimitech is the
-          design discipline that widens it.
+          research lab widening it.
         </blockquote>
       </Section>
 
@@ -110,7 +113,7 @@ const description =
         </div>
 
         {/* pending-URL: link to full primer */}
-        <p><a href="#">Read the full primer →</a></p>
+        <p><a href="#">Read the primer →</a></p>
       </Section>
 
       {/* §5 Deeper question */}
@@ -118,7 +121,7 @@ const description =
         <div class="deeper prose">
           <p>
             Engagement is what's easy to measure. Click, dwell, share, convert.
-            But the metric doesn't just describe the thing — it shapes it. A
+            But the metric doesn't just describe the thing; it shapes it. A
             platform optimized for engagement, sustained over years, makes humans
             more reactive. A platform optimized for something else would make
             humans something else. The honest question isn't whether AI will
@@ -130,105 +133,102 @@ const description =
         </div>
       </Section>
 
-      {/* §6 Standpoint — pending Rafa review */}
-      <Section id="standpoint" eyebrow="Standpoint">
-        <div class="prose">
-          <p>
-            I'm Rafa Ballestiero. I built engagement classification systems on 55
-            million behavioral data points at Imperial College London. I designed
-            reinforcement-learning-based behavior change interventions at Behale.
-            I built generative-AI persuasion systems at chilli.club.
-          </p>
-          <p class="pivot">I built the engagement playbook at scale. Then I turned around.</p>
-          <p>
-            Equanimitech is what I'm building instead — a discipline, a body of
-            writing, and a set of early projects. If any of this resonates, I'd
-            like to hear from you.
-          </p>
-        </div>
-      </Section>
-
-      {/* §7 Work */}
-      <Section id="work" eyebrow="The work">
-        <p class="prose">Two early projects in the discipline. Different scales. Same principles.</p>
+      {/* §6 Research (was §7 Work) */}
+      <Section id="work" eyebrow="Research">
+        <p class="prose">Two research projects from the lab. Different scales. Same principles.</p>
 
         <div class="projects" style="margin-top: calc(var(--spacing) * 10);">
           <Project
+            category="Sovereignty"
             name="Secretariat"
             tagline="Ambient context for AI, stamped by humans."
             body="The substrate for autonomous work where agents draft at volume, humans vouch for what matters, and no vendor sits in the middle. Local-first. Filesystem-authoritative. Built in the open."
             links={[
-              { label: "Read the docs →", href: "#" },
-              { label: "GitHub →", href: "#" },
+              { label: "Docs", href: "#" },
+              { label: "GitHub", href: "#" },
             ]}
           />
           {/* pending-URL: Secretariat docs + GitHub */}
 
           <Project
+            category="Awareness"
             name="Zenborg"
             tagline="The whiteboard, made software."
             body="Plan your day in three-word moments. Three at a time, three times a day, three days ahead. No streaks, no scores, no notifications. The constraints are the point."
             links={[
-              { label: "Try it →", href: "#" },
-              { label: "Download →", href: "#" },
+              { label: "Try it", href: "#" },
+              { label: "Download", href: "#" },
             ]}
           />
           {/* pending-URL: Zenborg web + download */}
         </div>
       </Section>
 
-      {/* §8 Reading */}
-      <Section id="reading" eyebrow="Reading">
-        <p class="prose">The work is in the writing as much as the products.</p>
+      {/* §7 Writing (was Reading) */}
+      <Section id="reading" eyebrow="Writing">
+        <p class="prose">The lab's writing carries as much of the discipline as the projects.</p>
 
         <ul class="reading-list" style="margin-top: calc(var(--spacing) * 8);">
           <li>
             {/* pending-URL: Three Poisons of Engagement */}
             <a href="#"><span class="title">Three Poisons of Engagement</span></a>
-            <span class="meta">the diagnosis, in three parts</span>
+            <span class="meta">The diagnosis, in three parts.</span>
           </li>
           <li>
             {/* pending-URL: Primer v0.2 */}
             <a href="#"><span class="title">Equanimitech Primer v0.2</span></a>
-            <span class="meta">the full framework, the nine principles, the measurement gap</span>
+            <span class="meta">The full framework. Nine principles. The measurement gap.</span>
           </li>
           <li>
             {/* pending-URL: Mindful Cyborg */}
             <a href="#"><span class="title">Mindful Cyborg</span></a>
-            <span class="meta">ongoing essays</span>
+            <span class="meta">Ongoing essays.</span>
           </li>
         </ul>
       </Section>
 
-      {/* §9 Door */}
+      {/* §8 Door */}
       <Section id="door" eyebrow="The door">
         <div class="prose">
           <p>
-            If you're building something in this direction — or thinking about it
-            — write to me.
+            If you're building something in this direction, or thinking about it,
+            write to the lab.
           </p>
           <a class="door__email" href="mailto:rafaba@hey.com">rafaba@hey.com</a>
         </div>
       </Section>
     </main>
 
-    {/* §10 Footer */}
+    {/* §9 Footer */}
     <footer id="footer" class="footer">
-      <div style="max-width: 72ch; margin-inline: auto; padding-inline: var(--page-pad-x);">
-        <p class="row">equanimi.tech · Rafa Ballestiero · 2026</p>
-        <p class="row">
-          {/* pending-URL: Substack */}
-          <a href="#">Substack</a>
-          <span aria-hidden="true"> · </span>
-          {/* pending-URL: GitHub */}
-          <a href="#">GitHub</a>
-          <span aria-hidden="true"> · </span>
-          {/* pending-URL: LinkedIn */}
-          <a href="#">LinkedIn</a>
-        </p>
-        <p class="row">
-          {/* pending-URL: page source on GitHub */}
-          Page source available — <a href="#">view on GitHub</a>
+      <div class="footer__inner">
+        <div class="footer__cols">
+          <div class="footer__col">
+            <p class="footer__head">Research</p>
+            {/* pending-URL: Secretariat */}
+            <p><a href="#">Secretariat</a></p>
+            {/* pending-URL: Zenborg */}
+            <p><a href="#">Zenborg</a></p>
+          </div>
+          <div class="footer__col">
+            <p class="footer__head">Writing</p>
+            {/* pending-URL: Three Poisons */}
+            <p><a href="#">Three Poisons of Engagement</a></p>
+            {/* pending-URL: Primer v0.2 */}
+            <p><a href="#">Equanimitech Primer v0.2</a></p>
+            {/* pending-URL: Mindful Cyborg / Substack */}
+            <p><a href="#">Mindful Cyborg</a></p>
+          </div>
+          <div class="footer__col">
+            <p class="footer__head">Contact</p>
+            <p><a href="mailto:rafaba@hey.com">rafaba@hey.com</a></p>
+            {/* pending-URL: GitHub org */}
+            <p><a href="#">GitHub</a></p>
+          </div>
+        </div>
+        <p class="footer__base">
+          Equanimitech, an independent research lab. 2026. Page source on
+          {" "}<a href="#">GitHub</a>.
         </p>
       </div>
     </footer>

@@ -4,22 +4,24 @@ interface ProjectLink {
   href: string;
 }
 interface Props {
+  category?: string;
   name: string;
   tagline: string;
   body: string;
   links: ProjectLink[];
 }
-const { name, tagline, body, links } = Astro.props;
+const { category, name, tagline, body, links } = Astro.props;
 ---
 <article class="project">
-  <p class="project__name">{name}</p>
+  {category && <p class="project__category">// {category.toUpperCase()}</p>}
+  <h3 class="project__name">{name}</h3>
   <p class="project__tag">{tagline}</p>
   <p class="project__body">{body}</p>
   <p class="project__links">
     {links.map((l, i) => (
       <>
         {i > 0 && <span aria-hidden="true">·</span>}
-        <a href={l.href}>{l.label}</a>
+        <a href={l.href}>[{l.label}]</a>
       </>
     ))}
   </p>

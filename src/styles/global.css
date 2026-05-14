@@ -1,5 +1,5 @@
 /* ---------------------------------------------------------------
-   equanimi.tech — global styles
+   equanimi.tech, global styles.
    Inherits from zenborg: stone monochrome, OKLCH, custom props,
    fluid type with clamp(), wabi-sabi restraint.
    --------------------------------------------------------------- */
@@ -33,7 +33,7 @@
   --color-faint: var(--stone-400);
   --color-rule: var(--stone-200);
 
-  /* Single accent — muted clay/ochre */
+  /* Single accent: muted clay/ochre */
   --color-accent: oklch(0.62 0.10 60);
 
   /* Spacing (zenborg base unit) */
@@ -103,7 +103,7 @@ body {
   border-radius: 2px;
 }
 
-/* Links — underline-draw on hover */
+/* Links: underline-draw on hover */
 a {
   color: inherit;
   text-decoration: none;
@@ -135,7 +135,7 @@ main {
   max-width: 72ch;
   margin-inline: auto;
   padding-inline: var(--page-pad-x);
-  padding-block: clamp(3rem, 8vw, 5.5rem) var(--section-gap);
+  padding-block: clamp(2rem, 5vw, 3.5rem) var(--section-gap);
 }
 
 .section {
@@ -161,7 +161,7 @@ main {
 .prose p { max-width: var(--measure); }
 .prose p + p { margin-top: 1.25em; }
 
-/* §1 Opening — display */
+/* §1 Opening: display */
 .opening {
   min-height: 60dvh;
   display: flex;
@@ -177,15 +177,27 @@ main {
   color: var(--color-text);
 }
 
-/* Wordmark */
+/* Masthead: wordmark + tagline (top-left identity, no nav) */
+.masthead {
+  max-width: 72ch;
+  margin-inline: auto;
+  padding-inline: var(--page-pad-x);
+  padding-block: clamp(2rem, 5vw, 3.5rem) 0;
+}
 .wordmark {
   font-family: var(--font-mono);
   font-size: var(--fs-sm);
   letter-spacing: 0.02em;
   color: var(--color-text);
-  margin-bottom: calc(var(--spacing) * 12);
+  margin-bottom: calc(var(--spacing) * 3);
 }
 .wordmark .dot { color: var(--color-accent); }
+.tagline {
+  font-size: var(--fs-sm);
+  color: var(--color-muted);
+  max-width: 52ch;
+  line-height: 1.5;
+}
 
 /* §3 Thesis hero quote */
 .thesis {
@@ -205,7 +217,7 @@ main {
   margin-bottom: calc(var(--spacing) * 8);
 }
 
-/* §4 Pyramid — SVG */
+/* §4 Pyramid (SVG) */
 .pyramid {
   margin: calc(var(--spacing) * 10) 0;
 }
@@ -232,7 +244,7 @@ main {
   transition: opacity 200ms var(--ease-smooth);
 }
 
-/* Hover dim — desktop only. Pure CSS via :has(). */
+/* Hover dim, desktop only. Pure CSS via :has(). */
 @media (hover: hover) {
   /* When any layer is hovered, dim the non-hovered ones. */
   .pyramid:has(.pyramid__layer[data-layer="eq"]:hover) .pyramid__layer:not([data-layer="eq"]),
@@ -313,22 +325,14 @@ main {
   max-width: var(--measure);
 }
 
-/* §5 Deeper question — narrower, optional accent rule */
+/* §5 Deeper question: narrower, optional accent rule */
 .deeper {
   max-width: var(--measure-narrow);
   border-left: 1px solid var(--color-accent);
   padding-left: calc(var(--spacing) * 6);
 }
 
-/* §6 Standpoint pivot line */
-.pivot {
-  font-size: var(--fs-md);
-  font-weight: 500;
-  letter-spacing: -0.01em;
-  margin-block: 1.25em;
-}
-
-/* §7 Projects */
+/* Research project cards (I&S-style) */
 .projects {
   display: grid;
   grid-template-columns: 1fr;
@@ -341,13 +345,21 @@ main {
   border-top: 1px solid var(--color-rule);
   padding-top: calc(var(--spacing) * 5);
 }
-.project__name {
+.project__category {
   font-family: var(--font-mono);
   font-size: var(--fs-xs);
   letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--color-muted);
+  color: var(--color-accent);
   margin-bottom: calc(var(--spacing) * 4);
+}
+.project__name {
+  font-family: var(--font-sans);
+  font-size: clamp(1.5rem, 1.3rem + 0.8vw, 2rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--color-text);
+  margin-bottom: calc(var(--spacing) * 3);
 }
 .project__tag {
   font-size: var(--fs-md);
@@ -370,6 +382,7 @@ main {
   flex-wrap: wrap;
   gap: 0.25em 1em;
 }
+.project__links a { color: var(--stone-700); }
 
 /* §8 Reading */
 .reading-list {
@@ -414,7 +427,7 @@ main {
   .door__email:hover { background-size: 100% 2px; }
 }
 
-/* §10 Footer — recessive, must not compete with §9 */
+/* §9 Footer: recessive, must not compete with §8 */
 .footer {
   border-top: 1px solid var(--color-rule);
   margin-top: var(--section-gap);
@@ -427,40 +440,58 @@ main {
 }
 .footer .row + .row { margin-top: calc(var(--spacing) * 1); }
 .footer a { color: var(--color-muted); }
+.footer__inner {
+  max-width: 72ch;
+  margin-inline: auto;
+  padding-inline: var(--page-pad-x);
+}
+.footer__cols {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: calc(var(--spacing) * 8);
+  margin-bottom: calc(var(--spacing) * 10);
+}
+@media (min-width: 640px) {
+  .footer__cols { grid-template-columns: 1fr 1fr 1fr; }
+}
+.footer__head {
+  color: var(--color-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: calc(var(--spacing) * 3);
+}
+.footer__col p { line-height: 1.7; }
+.footer__base {
+  color: var(--color-faint);
+  border-top: 1px solid var(--color-rule);
+  padding-top: calc(var(--spacing) * 4);
+}
 
-/* Microinteractions — opt-in, gated on no-preference */
+/* Microinteractions: opt-in, gated on no-preference */
 @media (prefers-reduced-motion: no-preference) {
   /* One-time page-load cascade fade-in via CSS animation-delay.
      Each section + wordmark + footer fades opacity 0 → 1 over 360ms,
-     staggered ~80ms. Static after load — no scroll re-trigger. */
+     staggered ~80ms. Static after load (no scroll re-trigger). */
   @keyframes equi-fade-in {
     from { opacity: 0; transform: translateY(4px); }
     to   { opacity: 1; transform: none; }
   }
-  .wordmark, .section, .footer {
+  .masthead, .section, .footer {
     opacity: 0;
     animation: equi-fade-in 360ms var(--ease-smooth) forwards;
   }
-  .wordmark        { animation-delay: 0ms; }
+  .masthead        { animation-delay: 0ms; }
   #opening         { animation-delay: 80ms; }
   #reversal        { animation-delay: 160ms; }
   #thesis          { animation-delay: 240ms; }
   #framework       { animation-delay: 320ms; }
   #deeper          { animation-delay: 400ms; }
-  #standpoint      { animation-delay: 480ms; }
-  #work            { animation-delay: 560ms; }
-  #reading         { animation-delay: 640ms; }
-  #door            { animation-delay: 720ms; }
-  .footer          { animation-delay: 800ms; }
+  #work            { animation-delay: 480ms; }
+  #reading         { animation-delay: 560ms; }
+  #door            { animation-delay: 640ms; }
+  .footer          { animation-delay: 720ms; }
 
-  /* §6 pivot line — extra delay after its paragraph. */
-  #standpoint .pivot {
-    opacity: 0;
-    animation: equi-fade-in 360ms var(--ease-smooth) forwards;
-    animation-delay: 680ms; /* 480ms section + 200ms */
-  }
-
-  /* Wordmark dot — single soft pulse on load. */
+  /* Wordmark dot: single soft pulse on load. */
   @keyframes equi-dot-pulse {
     0%   { opacity: 0.3; }
     100% { opacity: 1; }
