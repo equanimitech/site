@@ -207,6 +207,18 @@ main {
   max-width: 52ch;
   line-height: 1.5;
 }
+.research-q {
+  font-size: var(--fs-md);
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: -0.005em;
+  color: var(--color-text);
+  max-width: 38ch;
+  line-height: 1.35;
+  margin-top: calc(var(--spacing) * 5);
+  padding-top: calc(var(--spacing) * 5);
+  border-top: 1px solid var(--color-rule);
+}
 
 /* §3 Thesis hero quote */
 .thesis {
@@ -434,10 +446,11 @@ main {
   #reversal        { animation-delay: 160ms; }
   #thesis          { animation-delay: 240ms; }
   #framework       { animation-delay: 320ms; }
-  #deeper          { animation-delay: 400ms; }
-  #work            { animation-delay: 480ms; }
-  #door            { animation-delay: 560ms; }
-  .footer          { animation-delay: 640ms; }
+  #measurement     { animation-delay: 400ms; }
+  #deeper          { animation-delay: 480ms; }
+  #work            { animation-delay: 560ms; }
+  #door            { animation-delay: 640ms; }
+  .footer          { animation-delay: 720ms; }
 
   /* Wordmark dot: single soft pulse on load. */
   @keyframes equi-dot-pulse {
