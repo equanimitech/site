@@ -448,7 +448,7 @@ main {
     animation: equi-fade-in 360ms var(--ease-smooth) forwards;
   }
   .masthead        { animation-delay: 0ms; }
-  #premise         { animation-delay: 120ms; }
+  #tldr            { animation-delay: 120ms; }
   #thesis          { animation-delay: 200ms; }
   #framework       { animation-delay: 280ms; }
   #measurement     { animation-delay: 360ms; }
@@ -494,8 +494,20 @@ main {
       from { color: var(--color-faint); }
       to   { color: var(--color-text); }
     }
-    .prose p {
+    .prose p,
+    .thesis p,
+    .principle__name {
       animation: equi-prose-emphasize linear both;
+      animation-timeline: view();
+      animation-range: cover 10% cover 55%;
+    }
+    /* Principle tests start fainter and brighten to muted, not full text */
+    @keyframes equi-test-emphasize {
+      from { color: var(--color-faint); }
+      to   { color: var(--color-muted); }
+    }
+    .principle__test {
+      animation: equi-test-emphasize linear both;
       animation-timeline: view();
       animation-range: cover 10% cover 55%;
     }

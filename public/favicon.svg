@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round">
   <style>
     :root { color: #b07a3a; }
     @media (prefers-color-scheme: dark) { :root { color: #d4944a; } }
   </style>
-  <path d="M6 13 C 8 8, 14 8, 16 13 C 18 18, 24 18, 26 13"/>
-  <path d="M6 21 H26"/>
+  <path d="M5 13 C 8 7, 14 7, 16 13 C 18 19, 24 19, 27 13"/>
+  <path d="M6 22 H26"/>
 </svg>
