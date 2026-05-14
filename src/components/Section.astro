@@ -1,0 +1,18 @@
+---
+interface Props {
+  id: string;
+  eyebrow?: string;
+  narrow?: boolean;
+  className?: string;
+}
+const { id, eyebrow, narrow = false, className = "" } = Astro.props;
+const innerClass = narrow ? "section__inner section__inner--narrow" : "section__inner";
+---
+<section id={id} class={`section ${className}`} aria-labelledby={eyebrow ? `${id}-eyebrow` : undefined}>
+  <div class={innerClass}>
+    {eyebrow && (
+      <p class="eyebrow" id={`${id}-eyebrow`}>{eyebrow}</p>
+    )}
+    <slot />
+  </div>
+</section>
