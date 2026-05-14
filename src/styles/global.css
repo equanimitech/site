@@ -170,39 +170,53 @@ main {
 .prose p { max-width: var(--measure); }
 .prose p + p { margin-top: 1.25em; }
 
-/* Masthead: opening line as page-opener, then lab identity below */
+/* Masthead: sticky at top, sits above the hero and the rest */
 .masthead {
-  max-width: 72ch;
-  margin-inline: auto;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--color-bg);
   padding-inline: var(--page-pad-x);
-  padding-block: clamp(3rem, 8vw, 6rem) 0;
+  padding-block: clamp(1.25rem, 3vw, 2rem);
+  display: flex;
+  align-items: baseline;
+  gap: clamp(1rem, 3vw, 2.5rem);
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--color-rule);
 }
-.opening__text {
+
+/* Hero: full-viewport, opening line owns the screen */
+.hero {
+  min-height: calc(100dvh - var(--masthead-height, 4.5rem));
+  display: flex;
+  align-items: center;
+  padding-inline: var(--page-pad-x);
+  padding-block: clamp(3rem, 8vw, 6rem);
+}
+.hero__text {
   font-size: var(--fs-3xl);
   font-weight: 400;
   line-height: 1.05;
   letter-spacing: -0.03em;
   max-width: 18ch;
   color: var(--color-text);
-  margin-bottom: clamp(3rem, 8vw, 6rem);
-}
-.masthead__identity {
-  border-top: 1px solid var(--color-rule);
-  padding-top: calc(var(--spacing) * 6);
 }
 .wordmark {
   font-family: var(--font-mono);
   font-size: var(--fs-sm);
   letter-spacing: 0.02em;
   color: var(--color-text);
-  margin-bottom: calc(var(--spacing) * 3);
+  flex-shrink: 0;
 }
 .wordmark .dot { color: var(--color-accent); }
 .tagline {
-  font-size: var(--fs-sm);
+  font-size: var(--fs-xs);
   color: var(--color-muted);
-  max-width: 52ch;
-  line-height: 1.5;
+  max-width: 60ch;
+  line-height: 1.4;
+}
+@media (max-width: 640px) {
+  .tagline { display: none; }
 }
 /* §2 inline research question (closes the reversal section) */
 .research-q-inline {
@@ -443,19 +457,20 @@ main {
     from { opacity: 0; transform: translateY(4px); }
     to   { opacity: 1; transform: none; }
   }
-  .masthead, .section, .footer {
+  .masthead, .hero, .section, .footer {
     opacity: 0;
     animation: equi-fade-in 360ms var(--ease-smooth) forwards;
   }
   .masthead        { animation-delay: 0ms; }
-  #tldr            { animation-delay: 120ms; }
-  #thesis          { animation-delay: 200ms; }
-  #framework       { animation-delay: 280ms; }
-  #measurement     { animation-delay: 360ms; }
-  #deeper          { animation-delay: 440ms; }
-  #work            { animation-delay: 520ms; }
-  #door            { animation-delay: 600ms; }
-  .footer          { animation-delay: 680ms; }
+  .hero            { animation-delay: 80ms; }
+  #tldr            { animation-delay: 200ms; }
+  #thesis          { animation-delay: 280ms; }
+  #framework       { animation-delay: 360ms; }
+  #measurement     { animation-delay: 440ms; }
+  #deeper          { animation-delay: 520ms; }
+  #work            { animation-delay: 600ms; }
+  #door            { animation-delay: 680ms; }
+  .footer          { animation-delay: 760ms; }
 
   /* Wordmark dot: single soft pulse on load. */
   @keyframes equi-dot-pulse {
