@@ -1,6 +1,6 @@
 # equanimi.tech
 
-Site for Equanimitech, an independent research lab on the design of technology that cultivates equanimity.
+Site for Equanimitech, an open studio building technology that preserves attention and cultivates equanimity.
 
 Static Astro. Monochrome stone palette, single clay accent. Self-hosted Inter variable + system mono. No JS framework, no analytics, no third-party scripts.
 

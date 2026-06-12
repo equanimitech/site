@@ -5,7 +5,7 @@ import Project from "../components/Project.astro";
 
 const title = "equanimi.tech";
 const description =
-  "An independent research lab exploring technology that nurtures equanimity.";
+  "An open studio building technology that preserves attention and cultivates equanimity.";
 ---
 <!doctype html>
 <html lang="en">
@@ -35,8 +35,19 @@ const description =
   </head>
   <body>
     <header class="masthead">
-      <p class="wordmark">equanimi<span class="dot">.</span>tech</p>
-      <p class="tagline">An independent research lab exploring technology that nurtures equanimity.</p>
+      <a class="brand" href="/" aria-label="equanimi.tech, home">
+        <svg class="brand__glyph" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round" aria-hidden="true">
+          <path d="M5 13 C 8 7, 14 7, 16 13 C 18 19, 24 19, 27 13"/>
+          <path d="M6 22 H26"/>
+        </svg>
+        <span class="wordmark">equanimi<span class="dot">.</span>tech</span>
+      </a>
+      <p class="tagline">An open studio building technology that preserves attention and cultivates equanimity.</p>
+      <nav class="masthead__nav" aria-label="Primary">
+        <a href="https://github.com/equanimitech" rel="noreferrer noopener">GitHub</a>
+        <a href="https://rafaba.substack.com/" rel="noreferrer noopener">Newsletter</a>
+        <a href="#door">Contact</a>
+      </nav>
     </header>
 
     <section id="hero" class="hero">
@@ -54,7 +65,7 @@ const description =
         </blockquote>
         <p class="prose thesis__lineage">
           The framework draws on Vipassana practice, where awareness and
-          equanimity are taught as the two wings of wisdom. The lab treats
+          equanimity are taught as the two wings of wisdom. We treat
           this lineage as a working hypothesis: technology may be able to
           support, in small ways, what the practice has long cultivated.
           Whether it can is what we are here to find out.
@@ -139,7 +150,7 @@ const description =
       <Section id="measurement" eyebrow="The first question">
         <div class="prose">
           <p>
-            Before the research question can be answered, a smaller one comes
+            Before that question can be answered, a smaller one comes
             first: how do we measure equanimity in a product, not just in a
             practitioner?
           </p>
@@ -151,7 +162,7 @@ const description =
             unproven.
           </p>
           <p>
-            Closing this measurement gap is the lab's first investigation.
+            Closing this measurement gap is our first investigation.
             The principles above are how we hope to design; the gap is what
             we need to solve so we can know whether the design works.
           </p>
@@ -182,11 +193,11 @@ const description =
         </div>
       </Section>
 
-      {/* §6 Research (was §7 Work) */}
-      <Section id="work" eyebrow="Research">
-        <p class="prose">Two research projects from the lab. Different scales. Same principles.</p>
+      {/* §6 The work (was §7 Work) */}
+      <Section id="work" eyebrow="The work">
+        <p class="prose">Four working projects. Different scales. Same principles.</p>
 
-        <div class="projects" style="margin-top: calc(var(--spacing) * 10);">
+        <div class="projects">
           <Project
             category="Sovereignty"
             name="Secretariat"
@@ -198,12 +209,32 @@ const description =
           />
 
           <Project
+            category="Sovereignty"
+            name="Signet"
+            tagline="Portable, in-document attestations for markdown."
+            body="DID-identified signers, keys in the OS keychain, callable by agents over MCP. The cryptographic stamp that lets a human vouch for what an AI wrote."
+            links={[
+              { label: "GitHub", href: "https://github.com/equanimitech/signet" },
+            ]}
+          />
+
+          <Project
             category="Awareness"
             name="Zenborg"
             tagline="The whiteboard, made software."
             body="Plan your day in three-word moments. Three at a time, three times a day, three days ahead. No streaks, no scores, no notifications. The constraints are the point."
             links={[
-              { label: "GitHub", href: "https://github.com/Thopiax/zenborg" },
+              { label: "GitHub", href: "https://github.com/equanimitech/zenborg" },
+            ]}
+          />
+
+          <Project
+            category="Equanimity"
+            name="Keel"
+            tagline="Attentive technology for the distracted age."
+            body="A browser extension and desktop companion that keep the day on keel. Wind-down rituals, night lockdown, strategic friction where compulsion creeps in: the intentional path stays the easy one."
+            links={[
+              { label: "GitHub", href: "https://github.com/equanimitech/keel" },
             ]}
           />
         </div>
@@ -214,9 +245,13 @@ const description =
         <div class="prose">
           <p>
             If you're building something in this direction, or thinking about it,
-            write to the lab.
+            come in. The door is open.
           </p>
           <a class="door__email" href="mailto:rafaba@hey.com">rafaba@hey.com</a>
+          <p class="door__aside">
+            For occasional field notes, there is the
+            <a href="https://rafaba.substack.com/" rel="noreferrer noopener">newsletter</a>.
+          </p>
         </div>
       </Section>
     </main>
@@ -225,19 +260,36 @@ const description =
     <footer id="footer" class="footer">
       <div class="footer__inner">
         <div class="footer__cols">
-          <div class="footer__col">
-            <p class="footer__head">Research</p>
-            <p><a href="https://github.com/equanimitech/secretariat">Secretariat</a></p>
-            <p><a href="https://github.com/Thopiax/zenborg">Zenborg</a></p>
+          <div class="footer__col footer__col--lab">
+            <p class="footer__brand">
+              <svg class="brand__glyph" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round" aria-hidden="true">
+                <path d="M5 13 C 8 7, 14 7, 16 13 C 18 19, 24 19, 27 13"/>
+                <path d="M6 22 H26"/>
+              </svg>
+              <span class="wordmark">equanimi<span class="dot">.</span>tech</span>
+            </p>
+            <p class="footer__blurb">
+              An open studio building technology that preserves attention and
+              cultivates equanimity. The garage door stays up: working code,
+              not finished products.
+            </p>
           </div>
           <div class="footer__col">
-            <p class="footer__head">Contact</p>
+            <p class="footer__head">The work</p>
+            <p><a href="https://github.com/equanimitech/secretariat">Secretariat</a></p>
+            <p><a href="https://github.com/equanimitech/signet">Signet</a></p>
+            <p><a href="https://github.com/equanimitech/zenborg">Zenborg</a></p>
+            <p><a href="https://github.com/equanimitech/keel">Keel</a></p>
+          </div>
+          <div class="footer__col">
+            <p class="footer__head">Connect</p>
             <p><a href="mailto:rafaba@hey.com">rafaba@hey.com</a></p>
             <p><a href="https://github.com/equanimitech">GitHub</a></p>
+            <p><a href="https://rafaba.substack.com/">Newsletter</a></p>
           </div>
         </div>
         <p class="footer__base">
-          Equanimitech, an independent research lab. 2026.
+          Equanimitech, an open studio. Here, working. 2026.
         </p>
       </div>
     </footer>
