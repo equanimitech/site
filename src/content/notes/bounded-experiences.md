@@ -1,8 +1,8 @@
 ---
 title: Bounded Experiences
-summary: An interaction should have a natural end, and stopping should count as success.
+summary: Digital interactions should have natural endpoints. No infinite scroll, no autoplay, no bottomless feed. Stopping is success.
 date: 2026-06-17
-status: seedling
+status: budding
 tags: [awareness]
 ---
 
@@ -10,6 +10,17 @@ A principle of the [Awareness layer](/notes/start-here). The opposite of the inf
 
 **The design test**
 
-> Does this interaction have a natural end? If the user stops, is that a feature?
+> Does this interaction have a natural end? If the user stops, is that a feature or a failure?
 
-This note is a seedling. The full write-up is on its way.
+<details>
+<summary>How it shows up in the work</summary>
+
+- **Zenborg**: three moments per phase, three days on the timeline, cycles with start and end dates. When you finish placing today's intentions, you are done. There is no next screen.
+- **Respost**: a card ends with "fim, take your time." No autoplay, no next.
+- **Glance / Ask / Click**: Ask terminates, Click terminates. The paradigm is structurally anti-feed.
+
+Evidence: Grüning's 2023 grayscale-screen study found a 22 to 57 minute drop in daily usage when the bottomless pull was dampened.
+
+</details>
+
+A budding note. See also [Peripheral Presence](/notes/peripheral-presence) and [Fade-by-Design](/notes/fade-by-design).
