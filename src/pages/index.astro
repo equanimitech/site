@@ -1,5 +1,5 @@
 ---
-import "../styles/global.css";
+import Base from "../layouts/Base.astro";
 import Section from "../components/Section.astro";
 import Project from "../components/Project.astro";
 
@@ -7,291 +7,210 @@ const title = "equanimi.tech";
 const description =
   "An open studio building technology that preserves attention and cultivates equanimity.";
 ---
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{title}</title>
-    <meta name="description" content={description} />
-    <meta name="color-scheme" content="light dark" />
-    <meta name="robots" content="index,follow" />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://equanimi.tech/" />
-    <link rel="canonical" href="https://equanimi.tech/" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" type="image/png" sizes="512x512" href="/logo-512.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <meta property="og:image" content="https://equanimi.tech/logo-512.png" />
-    <link
-      rel="preload"
-      href="/fonts/Inter-Variable.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
-  </head>
-  <body>
-    <header class="masthead">
-      <a class="brand" href="/" aria-label="equanimi.tech, home">
-        <svg class="brand__glyph" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round" aria-hidden="true">
-          <path d="M5 13 C 8 7, 14 7, 16 13 C 18 19, 24 19, 27 13"/>
-          <path d="M6 22 H26"/>
-        </svg>
-        <span class="wordmark">equanimi<span class="dot">.</span>tech</span>
-      </a>
-      <p class="tagline">An open studio building technology that preserves attention and cultivates equanimity.</p>
-      <nav class="masthead__nav" aria-label="Primary">
-        <a href="https://github.com/equanimitech" rel="noreferrer noopener">GitHub</a>
-        <a href="https://rafaba.substack.com/" rel="noreferrer noopener">Newsletter</a>
-        <a href="#door">Contact</a>
-      </nav>
-    </header>
+<Base title={title} description={description} path="/" tagline={description}>
+  <section id="hero" class="hero">
+    <p class="hero__text">We, the users, are being used.</p>
+  </section>
 
-    <section id="hero" class="hero">
-      <p class="hero__text">We, the users, are being used.</p>
-    </section>
+  <main>
+    {/* §2 Thesis */}
+    <Section id="thesis" eyebrow="The thesis">
+      <blockquote class="thesis">
+        <p>Engagement makes you want what feels good and reject what feels bad.</p>
+        <p>Engagement tech makes us more reactive.</p>
+        <p>Equanimity helps us observe feelings, good or bad, and look past them to what really matters.</p>
+        <p>Equanimitech makes us more intentional.</p>
+      </blockquote>
+      <p class="prose thesis__lineage">
+        The framework draws on Vipassana practice, where awareness and
+        equanimity are taught as the two wings of wisdom. We treat
+        this lineage as a working hypothesis: technology may be able to
+        support, in small ways, what the practice has long cultivated.
+        Whether it can is what we are here to find out.
+      </p>
+      <p class="research-q-inline">
+        Can we design interfaces that sustain and cultivate equanimity?
+      </p>
+    </Section>
 
-    <main>
-      {/* §2 Thesis */}
-      <Section id="thesis" eyebrow="The thesis">
-        <blockquote class="thesis">
-          <p>Engagement makes you want what feels good and reject what feels bad.</p>
-          <p>Engagement tech makes us more reactive.</p>
-          <p>Equanimity helps us observe feelings, good or bad, and look past them to what really matters.</p>
-          <p>Equanimitech makes us more intentional.</p>
-        </blockquote>
-        <p class="prose thesis__lineage">
-          The framework draws on Vipassana practice, where awareness and
-          equanimity are taught as the two wings of wisdom. We treat
-          this lineage as a working hypothesis: technology may be able to
-          support, in small ways, what the practice has long cultivated.
-          Whether it can is what we are here to find out.
+    {/* §3 Framework */}
+    <Section id="framework" eyebrow="The framework">
+      <p class="prose">
+        Sovereignty over data is the foundation. Respecting attention is the
+        moment-to-moment practice. Cultivating equanimity is the long-term
+        outcome. Nine principles in three layers, each with a design test.
+      </p>
+
+      <div class="principles">
+        <section class="principles__layer">
+          <p class="principles__layer-name">Sovereignty</p>
+          <ol class="principles__list">
+            <li class="principle">
+              <p class="principle__name">Local-First Ownership</p>
+              <p class="principle__test">Does this work offline? If our servers shut down, does the tool keep working?</p>
+            </li>
+            <li class="principle">
+              <p class="principle__name">Holistic Control</p>
+              <p class="principle__test">Can the user disable any feature without breaking the whole?</p>
+            </li>
+            <li class="principle">
+              <p class="principle__name">Modification Rights</p>
+              <p class="principle__test">Can a technical user fork it? Can a non-technical user freeze the version?</p>
+            </li>
+          </ol>
+        </section>
+
+        <section class="principles__layer">
+          <p class="principles__layer-name">Awareness</p>
+          <ol class="principles__list" start="4">
+            <li class="principle">
+              <p class="principle__name">Peripheral Presence</p>
+              <p class="principle__test">Can the user safely ignore this for hours?</p>
+            </li>
+            <li class="principle">
+              <p class="principle__name">Attentional Granularity</p>
+              <p class="principle__test">Does content depth track attentional depth, gross to subtle?</p>
+            </li>
+            <li class="principle">
+              <p class="principle__name">Bounded Experiences</p>
+              <p class="principle__test">Does this interaction have a natural end? If the user stops, is that a feature?</p>
+            </li>
+          </ol>
+        </section>
+
+        <section class="principles__layer">
+          <p class="principles__layer-name">Equanimity</p>
+          <ol class="principles__list" start="7">
+            <li class="principle">
+              <p class="principle__name">Strategic Friction</p>
+              <p class="principle__test">Is the compulsive path harder than the intentional one?</p>
+            </li>
+            <li class="principle">
+              <p class="principle__name">Fade-by-Design</p>
+              <p class="principle__test">The user needs the tool less over time, through internalization. If a user stopped after six months, would we celebrate or panic?</p>
+            </li>
+            <li class="principle">
+              <p class="principle__name">Downstream Allocation</p>
+              <p class="principle__test">The user fills the slots. Recommender systems are upstream allocators; whiteboards with magnets are downstream.</p>
+            </li>
+          </ol>
+        </section>
+      </div>
+
+      <p class="prose framework__hedge">
+        A design hypothesis, not a validated causal model: the principles
+        create the structural conditions under which equanimity can emerge.
+        They do not produce it.
+      </p>
+    </Section>
+
+    {/* §5 The first question (measurement gap) */}
+    <Section id="measurement" eyebrow="The first question">
+      <div class="prose">
+        <p>
+          Before that question can be answered, a smaller one comes
+          first: how do we measure equanimity in a product, not just in a
+          practitioner?
         </p>
-        <p class="research-q-inline">
-          Can we design interfaces that sustain and cultivate equanimity?
+        <p>
+          Equanimity can be measured in people. The EQUA-S scale (Dambrun,
+          Juneau, Ricard) validates the construct in trained practitioners.
+          No instrument yet measures it passively in products. The leap from
+          "reduces compulsion" to "nurtures equanimity" is plausible but
+          unproven.
         </p>
-      </Section>
-
-      {/* §3 Framework */}
-      <Section id="framework" eyebrow="The framework">
-        <p class="prose">
-          Sovereignty over data is the foundation. Respecting attention is the
-          moment-to-moment practice. Cultivating equanimity is the long-term
-          outcome. Nine principles in three layers, each with a design test.
-        </p>
-
-        <div class="principles">
-          <section class="principles__layer">
-            <p class="principles__layer-name">Sovereignty</p>
-            <ol class="principles__list">
-              <li class="principle">
-                <p class="principle__name">Local-First Ownership</p>
-                <p class="principle__test">Does this work offline? If our servers shut down, does the tool keep working?</p>
-              </li>
-              <li class="principle">
-                <p class="principle__name">Holistic Control</p>
-                <p class="principle__test">Can the user disable any feature without breaking the whole?</p>
-              </li>
-              <li class="principle">
-                <p class="principle__name">Modification Rights</p>
-                <p class="principle__test">Can a technical user fork it? Can a non-technical user freeze the version?</p>
-              </li>
-            </ol>
-          </section>
-
-          <section class="principles__layer">
-            <p class="principles__layer-name">Awareness</p>
-            <ol class="principles__list" start="4">
-              <li class="principle">
-                <p class="principle__name">Peripheral Presence</p>
-                <p class="principle__test">Can the user safely ignore this for hours?</p>
-              </li>
-              <li class="principle">
-                <p class="principle__name">Attentional Granularity</p>
-                <p class="principle__test">Does content depth track attentional depth, gross to subtle?</p>
-              </li>
-              <li class="principle">
-                <p class="principle__name">Bounded Experiences</p>
-                <p class="principle__test">Does this interaction have a natural end? If the user stops, is that a feature?</p>
-              </li>
-            </ol>
-          </section>
-
-          <section class="principles__layer">
-            <p class="principles__layer-name">Equanimity</p>
-            <ol class="principles__list" start="7">
-              <li class="principle">
-                <p class="principle__name">Strategic Friction</p>
-                <p class="principle__test">Is the compulsive path harder than the intentional one?</p>
-              </li>
-              <li class="principle">
-                <p class="principle__name">Fade-by-Design</p>
-                <p class="principle__test">The user needs the tool less over time, through internalization. If a user stopped after six months, would we celebrate or panic?</p>
-              </li>
-              <li class="principle">
-                <p class="principle__name">Downstream Allocation</p>
-                <p class="principle__test">The user fills the slots. Recommender systems are upstream allocators; whiteboards with magnets are downstream.</p>
-              </li>
-            </ol>
-          </section>
-        </div>
-
-        <p class="prose framework__hedge">
-          A design hypothesis, not a validated causal model: the principles
-          create the structural conditions under which equanimity can emerge.
-          They do not produce it.
-        </p>
-      </Section>
-
-      {/* §5 The first question (measurement gap) */}
-      <Section id="measurement" eyebrow="The first question">
-        <div class="prose">
-          <p>
-            Before that question can be answered, a smaller one comes
-            first: how do we measure equanimity in a product, not just in a
-            practitioner?
-          </p>
-          <p>
-            Equanimity can be measured in people. The EQUA-S scale (Dambrun,
-            Juneau, Ricard) validates the construct in trained practitioners.
-            No instrument yet measures it passively in products. The leap from
-            "reduces compulsion" to "nurtures equanimity" is plausible but
-            unproven.
-          </p>
-          <p>
-            Closing this measurement gap is our first investigation.
-            The principles above are how we hope to design; the gap is what
-            we need to solve so we can know whether the design works.
-          </p>
-        </div>
-      </Section>
-
-      {/* §6 Deeper question */}
-      <Section id="deeper" eyebrow="The deeper question">
-        <div class="deeper prose">
-          <p>
-            Engagement was a measurement choice. The metric became the product,
-            and the product became the water we swim in. We have forgotten
-            there was ever anything else.
-          </p>
-          <p>
-            Goodhart's Law in slow motion: when a measure becomes a target, it
-            ceases to be a good measure. Metrics don't just describe the
-            thing. They shape it. A platform optimized for engagement,
-            sustained over years, makes humans more reactive. A platform
-            optimized for something else would make humans something else.
-          </p>
-          <p>
-            The honest question isn't whether AI will outpace human intellect.
-            It already has, in narrow ways, and the trend continues. The
-            honest question is whether the technology we build alongside it
-            leaves room for what intellect alone has never reached.
-          </p>
-        </div>
-      </Section>
-
-      {/* §6 The work (was §7 Work) */}
-      <Section id="work" eyebrow="The work">
-        <p class="prose">Four working projects. Different scales. Same principles.</p>
-
-        <div class="projects">
-          <Project
-            category="Sovereignty"
-            name="Secretariat"
-            tagline="Ambient context for AI, stamped by humans."
-            body="The substrate for autonomous work where agents draft at volume, humans vouch for what matters, and no vendor sits in the middle. Local-first. Filesystem-authoritative. Built in the open."
-            links={[
-              { label: "GitHub", href: "https://github.com/equanimitech/secretariat" },
-            ]}
-          />
-
-          <Project
-            category="Sovereignty"
-            name="Signet"
-            tagline="Portable, in-document attestations for markdown."
-            body="DID-identified signers, keys in the OS keychain, callable by agents over MCP. The cryptographic stamp that lets a human vouch for what an AI wrote."
-            links={[
-              { label: "GitHub", href: "https://github.com/equanimitech/signet" },
-            ]}
-          />
-
-          <Project
-            category="Awareness"
-            name="Zenborg"
-            tagline="The whiteboard, made software."
-            body="Plan your day in three-word moments. Three at a time, three times a day, three days ahead. No streaks, no scores, no notifications. The constraints are the point."
-            links={[
-              { label: "GitHub", href: "https://github.com/equanimitech/zenborg" },
-            ]}
-          />
-
-          <Project
-            category="Equanimity"
-            name="Keel"
-            tagline="Attentive technology for the distracted age."
-            body="A browser extension and desktop companion that keep the day on keel. Wind-down rituals, night lockdown, strategic friction where compulsion creeps in: the intentional path stays the easy one."
-            links={[
-              { label: "GitHub", href: "https://github.com/equanimitech/keel" },
-            ]}
-          />
-        </div>
-      </Section>
-
-      {/* §8 Door */}
-      <Section id="door" eyebrow="The door">
-        <div class="prose">
-          <p>
-            If you're building something in this direction, or thinking about it,
-            come in. The door is open.
-          </p>
-          <a class="door__email" href="mailto:rafaba@hey.com">rafaba@hey.com</a>
-          <p class="door__aside">
-            For occasional field notes, there is the
-            <a href="https://rafaba.substack.com/" rel="noreferrer noopener">newsletter</a>.
-          </p>
-        </div>
-      </Section>
-    </main>
-
-    {/* §9 Footer */}
-    <footer id="footer" class="footer">
-      <div class="footer__inner">
-        <div class="footer__cols">
-          <div class="footer__col footer__col--lab">
-            <p class="footer__brand">
-              <svg class="brand__glyph" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round" aria-hidden="true">
-                <path d="M5 13 C 8 7, 14 7, 16 13 C 18 19, 24 19, 27 13"/>
-                <path d="M6 22 H26"/>
-              </svg>
-              <span class="wordmark">equanimi<span class="dot">.</span>tech</span>
-            </p>
-            <p class="footer__blurb">
-              An open studio building technology that preserves attention and
-              cultivates equanimity. The garage door stays up: working code,
-              not finished products.
-            </p>
-          </div>
-          <div class="footer__col">
-            <p class="footer__head">The work</p>
-            <p><a href="https://github.com/equanimitech/secretariat">Secretariat</a></p>
-            <p><a href="https://github.com/equanimitech/signet">Signet</a></p>
-            <p><a href="https://github.com/equanimitech/zenborg">Zenborg</a></p>
-            <p><a href="https://github.com/equanimitech/keel">Keel</a></p>
-          </div>
-          <div class="footer__col">
-            <p class="footer__head">Connect</p>
-            <p><a href="mailto:rafaba@hey.com">rafaba@hey.com</a></p>
-            <p><a href="https://github.com/equanimitech">GitHub</a></p>
-            <p><a href="https://rafaba.substack.com/">Newsletter</a></p>
-          </div>
-        </div>
-        <p class="footer__base">
-          Equanimitech, an open studio. Here, working. 2026.
+        <p>
+          Closing this measurement gap is our first investigation.
+          The principles above are how we hope to design; the gap is what
+          we need to solve so we can know whether the design works.
         </p>
       </div>
-    </footer>
-  </body>
-</html>
+    </Section>
+
+    {/* §6 Deeper question */}
+    <Section id="deeper" eyebrow="The deeper question">
+      <div class="deeper prose">
+        <p>
+          Engagement was a measurement choice. The metric became the product,
+          and the product became the water we swim in. We have forgotten
+          there was ever anything else.
+        </p>
+        <p>
+          Goodhart's Law in slow motion: when a measure becomes a target, it
+          ceases to be a good measure. Metrics don't just describe the
+          thing. They shape it. A platform optimized for engagement,
+          sustained over years, makes humans more reactive. A platform
+          optimized for something else would make humans something else.
+        </p>
+        <p>
+          The honest question isn't whether AI will outpace human intellect.
+          It already has, in narrow ways, and the trend continues. The
+          honest question is whether the technology we build alongside it
+          leaves room for what intellect alone has never reached.
+        </p>
+      </div>
+    </Section>
+
+    {/* §6 The work (was §7 Work) */}
+    <Section id="work" eyebrow="The work">
+      <p class="prose">Four working projects. Different scales. Same principles.</p>
+
+      <div class="projects">
+        <Project
+          category="Sovereignty"
+          name="Secretariat"
+          tagline="Ambient context for AI, stamped by humans."
+          body="The substrate for autonomous work where agents draft at volume, humans vouch for what matters, and no vendor sits in the middle. Local-first. Filesystem-authoritative. Built in the open."
+          links={[
+            { label: "GitHub", href: "https://github.com/equanimitech/secretariat" },
+          ]}
+        />
+
+        <Project
+          category="Sovereignty"
+          name="Signet"
+          tagline="Portable, in-document attestations for markdown."
+          body="DID-identified signers, keys in the OS keychain, callable by agents over MCP. The cryptographic stamp that lets a human vouch for what an AI wrote."
+          links={[
+            { label: "GitHub", href: "https://github.com/equanimitech/signet" },
+          ]}
+        />
+
+        <Project
+          category="Awareness"
+          name="Zenborg"
+          tagline="The whiteboard, made software."
+          body="Plan your day in three-word moments. Three at a time, three times a day, three days ahead. No streaks, no scores, no notifications. The constraints are the point."
+          links={[
+            { label: "GitHub", href: "https://github.com/equanimitech/zenborg" },
+          ]}
+        />
+
+        <Project
+          category="Equanimity"
+          name="Keel"
+          tagline="Attentive technology for the distracted age."
+          body="A browser extension and desktop companion that keep the day on keel. Wind-down rituals, night lockdown, strategic friction where compulsion creeps in: the intentional path stays the easy one."
+          links={[
+            { label: "GitHub", href: "https://github.com/equanimitech/keel" },
+          ]}
+        />
+      </div>
+    </Section>
+
+    {/* §8 Door */}
+    <Section id="door" eyebrow="The door">
+      <div class="prose">
+        <p>
+          If you're building something in this direction, or thinking about it,
+          come in. The door is open.
+        </p>
+        <a class="door__email" href="mailto:rafaba@hey.com">rafaba@hey.com</a>
+        <p class="door__aside">
+          For occasional field notes, there is the
+          <a href="https://rafaba.substack.com/" rel="noreferrer noopener">newsletter</a>.
+        </p>
+      </div>
+    </Section>
+  </main>
+</Base>
