@@ -17,7 +17,7 @@ A principle of the [Awareness layer](/notes/start-here). The opposite of the inf
 
 - **Zenborg**: three moments per phase, three days on the timeline, cycles with start and end dates. When you finish placing today's intentions, you are done. There is no next screen.
 - **Respost**: a card ends with "fim, take your time." No autoplay, no next.
-- **Glance / Ask / Click**: Ask terminates, Click terminates. The paradigm is structurally anti-feed.
+- **Glance, Press, Ask**: a press terminates, an ask terminates. The paradigm is structurally anti-feed.
 
 Evidence: Grüning's 2023 grayscale-screen study found a 22 to 57 minute drop in daily usage when the bottomless pull was dampened.
 
