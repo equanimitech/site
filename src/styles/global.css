@@ -62,6 +62,7 @@
   /* Layout */
   --measure: 62ch;
   --measure-narrow: 48ch;
+  --measure-wide: 84ch;   /* structural track: grids + page shell breathe wider than prose */
   --page-pad-x: clamp(1.25rem, 4vw, 2.5rem);
   --section-gap: clamp(6rem, 12vh, 10rem);
 }
@@ -132,7 +133,7 @@ h1, h2, h3 {
 /* Layout */
 main {
   width: 100%;
-  max-width: 72ch;
+  max-width: var(--measure-wide);
   margin-inline: auto;
   padding-inline: var(--page-pad-x);
   padding-block: clamp(2rem, 5vw, 3.5rem) var(--section-gap);
@@ -150,7 +151,8 @@ main {
   padding-block-start: calc(var(--section-gap) * 0.5);
 }
 
-.section__inner { max-width: var(--measure); }
+/* Section shell is the wide track; prose self-caps to --measure within it. */
+.section__inner { max-width: var(--measure-wide); }
 .section__inner--narrow { max-width: var(--measure-narrow); }
 
 .eyebrow {
@@ -172,7 +174,9 @@ main {
   flex-shrink: 0;
 }
 
-.prose p { max-width: var(--measure); }
+/* Reading column stays narrow even though the section shell is wide.
+   .prose caps both the wrapper div and bare <p class="prose"> intros. */
+.prose, .prose p { max-width: var(--measure); }
 .prose p + p { margin-top: 1.25em; }
 
 /* Masthead: sticky at top, sits above the hero and the rest */
@@ -334,7 +338,8 @@ main {
 .principle {
   display: grid;
   grid-template-columns: 2.25rem 1fr;
-  gap: calc(var(--spacing) * 1);
+  column-gap: calc(var(--spacing) * 3);
+  row-gap: 0;
   border-top: 1px solid var(--color-rule);
   padding-top: calc(var(--spacing) * 4);
   counter-increment: principle;
@@ -483,7 +488,7 @@ main {
 .footer .row + .row { margin-top: calc(var(--spacing) * 1); }
 .footer a { color: var(--color-muted); }
 .footer__inner {
-  max-width: 72ch;
+  max-width: var(--measure-wide);
   margin-inline: auto;
   padding-inline: var(--page-pad-x);
 }
@@ -494,7 +499,10 @@ main {
   margin-bottom: calc(var(--spacing) * 10);
 }
 @media (min-width: 640px) {
-  .footer__cols { grid-template-columns: 1.6fr 1fr 1fr; }
+  .footer__cols {
+    grid-template-columns: 1.8fr 1fr 1fr;
+    column-gap: clamp(2rem, 5vw, 4rem);
+  }
 }
 .footer__brand {
   display: flex;
@@ -505,8 +513,11 @@ main {
 .footer__brand .brand__glyph { width: 1.3em; height: 1.3em; }
 .footer__brand .wordmark { color: var(--color-muted); }
 .footer__blurb {
-  max-width: 32ch;
+  font-family: var(--font-sans);
+  color: var(--color-muted);
+  max-width: 46ch;
   line-height: 1.6;
+  letter-spacing: normal;
 }
 .footer__head {
   color: var(--color-muted);
@@ -516,7 +527,7 @@ main {
 }
 .footer__col p { line-height: 1.7; }
 .footer__base {
-  color: var(--color-faint);
+  color: var(--color-muted);
   border-top: 1px solid var(--color-rule);
   padding-top: calc(var(--spacing) * 4);
 }
