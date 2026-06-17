@@ -601,6 +601,138 @@ main {
   }
 }
 
+/* ---------------------------------------------------------------
+   Notes garden: a calm reading column + index. Inherits the stone
+   palette, fluid type, and prose rhythm above.
+   --------------------------------------------------------------- */
+.note {
+  max-width: var(--measure);
+}
+.note__back {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin-bottom: calc(var(--spacing) * 12);
+}
+.note__eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.06em;
+  color: var(--color-muted);
+  margin-bottom: calc(var(--spacing) * 3);
+}
+.note__title {
+  font-size: var(--fs-2xl);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-bottom: calc(var(--spacing) * 12);
+}
+/* Body prose: headings, lists, code, blockquotes within a note. */
+.note__body h2 { font-size: var(--fs-lg); margin: calc(var(--spacing) * 12) 0 calc(var(--spacing) * 4); }
+.note__body h3 { font-size: var(--fs-md); margin: calc(var(--spacing) * 8) 0 calc(var(--spacing) * 3); }
+.note__body p { margin-top: 1.25em; }
+.note__body ul, .note__body ol { margin: 1.25em 0; padding-left: 1.4em; }
+.note__body ul { list-style: disc; }
+.note__body ol { list-style: decimal; }
+.note__body li + li { margin-top: 0.4em; }
+.note__body blockquote {
+  border-left: 1px solid var(--color-accent);
+  padding-left: calc(var(--spacing) * 6);
+  color: var(--color-muted);
+  font-style: italic;
+  margin: 1.5em 0;
+}
+.note__body code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  background: var(--color-rule);
+  padding: 0.1em 0.35em;
+  border-radius: 2px;
+}
+.note__body pre {
+  background: var(--color-rule);
+  padding: calc(var(--spacing) * 4);
+  border-radius: 4px;
+  overflow-x: auto;
+  margin: 1.5em 0;
+}
+.note__body pre code { background: none; padding: 0; }
+.note__body a { color: var(--color-text); }
+.note__body img { margin: 1.5em 0; border-radius: 4px; }
+
+/* Per-section expansion: depth-on-demand via native <details>. */
+.note__body details {
+  border-left: 2px solid var(--color-rule);
+  padding-left: calc(var(--spacing) * 5);
+  margin: 1.5em 0;
+}
+.note__body details[open] { border-left-color: var(--color-accent); }
+.note__body summary {
+  cursor: pointer;
+  font-weight: 500;
+  color: var(--color-text);
+  list-style: none;
+}
+.note__body summary::-webkit-details-marker { display: none; }
+.note__body summary::before {
+  content: "+ ";
+  font-family: var(--font-mono);
+  color: var(--color-accent);
+}
+.note__body details[open] summary::before { content: "\2212 "; }
+
+/* Index: a quiet list of cards. */
+.notes-index {
+  max-width: var(--measure);
+}
+.notes-index__title {
+  font-size: var(--fs-2xl);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-bottom: calc(var(--spacing) * 3);
+}
+.notes-index__intro {
+  color: var(--color-muted);
+  max-width: var(--measure-narrow);
+  margin-bottom: calc(var(--spacing) * 16);
+}
+.notes-index__eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: calc(var(--spacing) * 4);
+}
+.notes-index__start { margin-bottom: calc(var(--spacing) * 14); }
+.notes-index__list { display: flex; flex-direction: column; }
+.note-card {
+  display: grid;
+  gap: calc(var(--spacing) * 1);
+  padding-block: calc(var(--spacing) * 5);
+  border-top: 1px solid var(--color-rule);
+  background-image: none;
+}
+.notes-index__start .note-card { border-top: 0; padding-top: 0; }
+.note-card__title {
+  font-size: var(--fs-md);
+  font-weight: 500;
+  color: var(--color-text);
+}
+.note-card__summary { color: var(--color-muted); }
+.note-card__meta {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.04em;
+  color: var(--color-faint);
+}
+@media (hover: hover) {
+  .note-card:hover .note-card__title { color: var(--color-accent); }
+}
+
 /* Dark mode: invert semantic vars; OKLCH stays perceptually uniform. */
 @media (prefers-color-scheme: dark) {
   :root {

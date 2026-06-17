@@ -1,0 +1,46 @@
+---
+import Base from "../../layouts/Base.astro";
+import { getCollection } from "astro:content";
+
+const all = (await getCollection("notes", ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+const start = all.find((n) => n.slug === "start-here");
+const rest = all.filter((n) => n.slug !== "start-here");
+
+const description =
+  "An evergreen garden of notes on attention, sovereignty, and equanimity.";
+
+function meta(note: (typeof all)[number]) {
+  const tags = note.data.tags ?? [];
+  return [note.data.status, ...tags.map((t) => `#${t}`)].join("  ·  ");
+}
+---
+<Base title="Notes | equanimi.tech" description={description} path="/notes">
+  <main class="notes-index">
+    <h1 class="notes-index__title">Notes</h1>
+    <p class="notes-index__intro">{description}</p>
+
+    {start && (
+      <section class="notes-index__start">
+        <p class="notes-index__eyebrow">Start here</p>
+        <a class="note-card" href={`/notes/${start.slug}`}>
+          <span class="note-card__title">{start.data.title}</span>
+          <span class="note-card__summary">{start.data.summary}</span>
+        </a>
+      </section>
+    )}
+
+    <ul class="notes-index__list">
+      {rest.map((n) => (
+        <li>
+          <a class="note-card" href={`/notes/${n.slug}`}>
+            <span class="note-card__title">{n.data.title}</span>
+            <span class="note-card__summary">{n.data.summary}</span>
+            <span class="note-card__meta">{meta(n)}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </main>
+</Base>
