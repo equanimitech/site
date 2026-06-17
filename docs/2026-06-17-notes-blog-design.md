@@ -186,6 +186,36 @@ deferred-extracts reference exist). Publish on a cadence; the garden grows.
 **Substack archive:** the 6 Mindful Cyborg essays are an *optional secondary* import,
 later — they are chronological-essay shaped and less central than the internal corpus.
 
+## Status and attestation (the seam)
+
+The `status` field is the garden's one convention, and it maps onto Secretariat's
+trust model:
+
+- **seedling / budding** are *signature-only*. An agent may have drafted them; they
+  are informational, rough on purpose.
+- **evergreen** is *stamped* by the principal (signet, Touch ID). The human vouches.
+
+Two properties fall out:
+
+1. Only the principal can mint evergreen. Agents draft seedlings and budding notes;
+   they never stamp. The top of the ladder requires Rafa's hand on the wheel. This is
+   "stamped by humans" enforced on the studio's own publishing.
+2. The stamp is what keeps the open door safe: rough work is visibly rough, firm work
+   carries the seal, so everything can be shown without diluting the door's edge.
+
+This mirrors the crystallization gradient: `Ask -> (cache) -> Press` and
+`seedling -> (stamp) -> evergreen` are the same move, paying an effortful act once to
+precipitate something durable.
+
+At bottom this is sovereignty applied to one's own voice: publishing owned outright,
+off the rented platform, the status label an honesty with oneself and the stamp simply
+meaning it.
+
+**Build deferred.** Today `status` is an honest frontmatter label, nothing more. When
+the first note is firm enough to stamp, build the attestation layer: allow a signet
+`$signatures` block through the schema, run `signet verify` at build, render a verified
+seal on evergreen notes. Not before.
+
 ## Out of scope (YAGNI — add when needed)
 
 Email capture/sending · spaced repetition / Orbit · wikilink syntax · MDX components ·
