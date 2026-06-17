@@ -3,6 +3,7 @@ title: Bounded Experiences
 summary: Digital interactions should have natural endpoints. No infinite scroll, no autoplay, no bottomless feed. Stopping is success.
 date: 2026-06-17
 status: budding
+draft: true
 tags: [awareness]
 ---
 

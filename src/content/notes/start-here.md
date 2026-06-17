@@ -3,6 +3,7 @@ title: Start here
 summary: An open studio building technology that preserves attention and cultivates equanimity.
 date: 2026-06-17
 status: evergreen
+draft: true
 tags: [framework]
 ---
 

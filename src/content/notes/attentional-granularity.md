@@ -3,6 +3,7 @@ title: Attentional Granularity
 summary: Content depth should track attentional depth. Start gross, deepen only as focus settles. Gross to subtle, never the reverse.
 date: 2026-06-17
 status: evergreen
+draft: true
 tags: [awareness]
 ---
 

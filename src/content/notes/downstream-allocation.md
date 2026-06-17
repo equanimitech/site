@@ -3,6 +3,7 @@ title: Downstream Allocation
 summary: The user fills the slots, the system does not. Recommenders are upstream allocators; a whiteboard with magnets is downstream.
 date: 2026-06-17
 status: budding
+draft: true
 tags: [equanimity]
 ---
 

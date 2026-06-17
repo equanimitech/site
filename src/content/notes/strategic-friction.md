@@ -3,6 +3,7 @@ title: Strategic Friction
 summary: Make the compulsive path harder and the intentional path easier. Strategic friction is compassionate, not bureaucratic.
 date: 2026-06-17
 status: budding
+draft: true
 tags: [equanimity]
 ---
 

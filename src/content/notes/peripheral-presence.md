@@ -3,6 +3,7 @@ title: Peripheral Presence
 summary: Technology should inform without demanding focal attention. You visit it; it does not visit you. Boring by design.
 date: 2026-06-17
 status: budding
+draft: true
 tags: [awareness]
 ---
 

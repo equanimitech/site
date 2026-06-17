@@ -3,6 +3,7 @@ title: Fade-by-Design
 summary: Success means the user needs the tool less over time, through internalization. Training wheels, not crutches.
 date: 2026-06-17
 status: budding
+draft: true
 tags: [equanimity]
 ---
 

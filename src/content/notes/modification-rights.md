@@ -3,6 +3,7 @@ title: Modification Rights
 summary: Open source by default. The technically capable can fork or adapt it; the non-technical can freeze it. Both stay in control.
 date: 2026-06-17
 status: budding
+draft: true
 tags: [sovereignty]
 ---
 

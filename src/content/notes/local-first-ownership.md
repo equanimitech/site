@@ -3,6 +3,7 @@ title: Local-First Ownership
 summary: The user owns their data and computation. Not "we store it securely for you," the user possesses it.
 date: 2026-06-17
 status: budding
+draft: true
 tags: [sovereignty]
 ---
 

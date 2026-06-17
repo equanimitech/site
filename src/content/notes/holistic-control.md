@@ -3,6 +3,7 @@ title: Holistic Control
 summary: The user controls what features are active and what data flows where. No dark patterns, no forced updates, no locked features.
 date: 2026-06-17
 status: budding
+draft: true
 tags: [sovereignty]
 ---
 
