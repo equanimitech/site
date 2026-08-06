@@ -1,0 +1,14 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "inter",
+        "createdAt": "2026-08-06T11:35:55.893Z",
+        "reason": "User confirmed Inter is intentional: chosen this session as the org-wide text face (DESIGN.md, Typography)"
+      }
+    ]
+  }
+}
