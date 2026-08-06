@@ -2,7 +2,7 @@
 
 Site for Equanimitech, an open studio building technology that preserves attention and cultivates equanimity.
 
-Static Astro. Monochrome stone palette, single clay accent. Self-hosted Inter variable + system mono. No JS framework, no analytics, no third-party scripts.
+Static Astro. Monochrome stone palette, single clay accent. Self-hosted Inter Variable + JetBrains Mono Variable. No JS framework, no analytics, no third-party scripts.
 
 ## Develop
 
@@ -24,7 +24,7 @@ src/
   pages/index.astro
   components/{Section,Project}.astro
   styles/global.css
-public/fonts/Inter-Variable.woff2
+public/fonts/{Inter,JetBrainsMono}-Variable.woff2
 .github/profile/README.md       # staged for github.com/equanimitech org profile
 ```
 

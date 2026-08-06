@@ -13,6 +13,15 @@
        url("/fonts/Inter-Variable.woff2") format("woff2");
 }
 
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 100 800;
+  font-display: swap;
+  src: url("/fonts/JetBrainsMono-Variable.woff2") format("woff2-variations"),
+       url("/fonts/JetBrainsMono-Variable.woff2") format("woff2");
+}
+
 :root {
   /* Stone palette (OKLCH) */
   --stone-50:  oklch(0.985 0.003 60);   /* #fafaf9 off-white */
@@ -47,7 +56,7 @@
 
   /* Type */
   --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
 
   /* Fluid sizes */
   --fs-xs:   clamp(0.75rem,  0.72rem + 0.15vw, 0.85rem);
@@ -62,9 +71,11 @@
   /* Layout */
   --measure: 62ch;
   --measure-narrow: 48ch;
-  --measure-wide: 84ch;   /* structural track: grids + page shell breathe wider than prose */
+  /* Measure ladder is √φ-stepped: 48 → 62 → 79ch. */
+  --measure-wide: 79ch;   /* structural track: grids + page shell breathe wider than prose */
   --page-pad-x: clamp(1.25rem, 4vw, 2.5rem);
-  --section-gap: clamp(6rem, 12vh, 10rem);
+  /* Macro rhythm on the φ ladder: 1 / 1.618 / 2.618 / 4.236 / 6.854 / 11.089rem */
+  --section-gap: clamp(6.854rem, 12vh, 11.089rem);
 }
 
 /* Reset */
