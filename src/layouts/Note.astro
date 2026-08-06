@@ -1,0 +1,24 @@
+---
+import Base from "./Base.astro";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  note: CollectionEntry<"notes">;
+  readingTime: number;
+}
+
+const { note, readingTime } = Astro.props;
+const { Content } = await note.render();
+const { title, summary, status, tags = [] } = note.data;
+const meta = [`${readingTime} min read`, status, ...tags.map((t) => `#${t}`)];
+---
+<Base title={`${title} | equanimi.tech`} description={summary} path={`/notes/${note.slug}`}>
+  <main class="note">
+    <a class="note__back" href="/notes">&larr; Notes</a>
+    <p class="note__eyebrow">{meta.join("  ·  ")}</p>
+    <h1 class="note__title">{title}</h1>
+    <article class="prose note__body">
+      <Content />
+    </article>
+  </main>
+</Base>

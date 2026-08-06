@@ -1,0 +1,108 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+  path: string; // leading-slash path, e.g. "/" or "/notes"
+  tagline?: string; // masthead tagline; homepage only
+}
+
+const { title, description, path, tagline } = Astro.props;
+const url = `https://equanimi.tech${path}`;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="robots" content="index,follow" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={url} />
+    <link rel="canonical" href={url} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/logo-512.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta property="og:image" content="https://equanimi.tech/logo-512.png" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="equanimi.tech Notes"
+      href="/rss.xml"
+    />
+    <link
+      rel="preload"
+      href="/fonts/Inter-Variable.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/JetBrainsMono-Variable.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+  </head>
+  <body>
+    <header class="masthead">
+      <a class="brand" href="/" aria-label="equanimi.tech, home">
+        <svg class="brand__glyph" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round" aria-hidden="true">
+          <path d="M5 13 C 8 7, 14 7, 16 13 C 18 19, 24 19, 27 13"/>
+          <path d="M6 22 H26"/>
+        </svg>
+        <span class="wordmark">equanimi<span class="dot">.</span>tech</span>
+      </a>
+      {tagline && <p class="tagline">{tagline}</p>}
+      <nav class="masthead__nav" aria-label="Primary">
+        <a href="/notes">Notes</a>
+        <a href="https://github.com/equanimitech" rel="noreferrer noopener">GitHub</a>
+        <a href="https://rafaba.substack.com/" rel="noreferrer noopener">Newsletter</a>
+        <a href="/#door">Contact</a>
+      </nav>
+    </header>
+
+    <slot />
+
+    <footer id="footer" class="footer">
+      <div class="footer__inner">
+        <div class="footer__cols">
+          <div class="footer__col footer__col--lab">
+            <p class="footer__brand">
+              <svg class="brand__glyph" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round" aria-hidden="true">
+                <path d="M5 13 C 8 7, 14 7, 16 13 C 18 19, 24 19, 27 13"/>
+                <path d="M6 22 H26"/>
+              </svg>
+              <span class="wordmark">equanimi<span class="dot">.</span>tech</span>
+            </p>
+            <p class="footer__blurb">
+              An open studio building technology that preserves attention and
+              cultivates equanimity. The garage door stays up: working code,
+              not finished products.
+            </p>
+          </div>
+          <div class="footer__col">
+            <p class="footer__head">Read</p>
+            <p><a href="/notes">Notes</a></p>
+            <p><a href="/rss.xml">RSS</a></p>
+            <p><a href="https://rafaba.substack.com/">Newsletter</a></p>
+          </div>
+          <div class="footer__col">
+            <p class="footer__head">Connect</p>
+            <p><a href="mailto:rafaba@hey.com">rafaba@hey.com</a></p>
+            <p><a href="https://github.com/equanimitech">GitHub</a></p>
+          </div>
+        </div>
+        <p class="footer__base">
+          Equanimitech, an open studio. Here, working. 2026.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
