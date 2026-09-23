@@ -1,0 +1,195 @@
+---
+import Base from "../layouts/Base.astro";
+import Section from "../components/Section.astro";
+
+const title = "Zenborg · equanimi.tech";
+const description =
+  "Zenborg is a garden for your attention. A local-first macOS app.";
+const pitch =
+  "Zenborg is a garden for your attention: plant what you want to grow, grow it with the people and places you care about, fence out the weeds, and return to tend it every day.";
+const download = "https://github.com/equanimitech/zenborg/releases/latest";
+
+const gestures = [
+  {
+    name: "🌱 Plant",
+    tag: "What you want to grow.",
+    body: "Areas are the plots of your life. Habits are perennials. Moments are today's intentions, one to three words. Cycles are seasons. A better habit tracker: intentions, no streaks, no checkboxes.",
+  },
+  {
+    name: "🤝 Companion",
+    tag: "Who and where you grow it with.",
+    body: "People and places, each held with an intention. Relation, not record.",
+  },
+  {
+    name: "🚧 Fence",
+    tag: "Keep the weeds out.",
+    body: "Fence out the sites and feeds that crowd the garden. A calmer screen-time tool: a pause and some friction at the boundary, not lockouts and shame.",
+  },
+  {
+    name: "🪴 Tend",
+    tag: "Come back to it.",
+    body: "Daily and seasonal rituals: sunrise, sunset, weather, season. Returning, not nagging.",
+  },
+];
+
+// TODO(screenshots): drop images in public/zenborg/ and swap each
+// placeholder <div> for <img src={s.src} alt={s.alt} loading="lazy" />.
+const shots = [
+  {
+    src: "/zenborg/day.png",
+    alt: "The day view: moments tended across morning, afternoon and evening.",
+    caption: "The day, in phases.",
+  },
+  {
+    src: "/zenborg/garden.png",
+    alt: "The garden: areas of life with their habits.",
+    caption: "The garden, by area.",
+  },
+  {
+    src: "/zenborg/fence.png",
+    alt: "A fence pausing a visit to a site that was fenced out.",
+    caption: "A pause at the fence.",
+  },
+];
+---
+<Base title={title} description={description} path="/zenborg">
+  <main>
+    <header class="zb-hero">
+      <p class="eyebrow">Awareness · a working project</p>
+      <h1 class="zb-hero__name">Zenborg</h1>
+      <p class="zb-hero__pitch">{pitch}</p>
+      <p class="zb-hero__meta">
+        macOS · Apple Silicon · local-first · <a href="#get">Get it</a>
+      </p>
+    </header>
+
+    <Section id="what" eyebrow="What it is">
+      <div class="projects">
+        {gestures.map((g) => (
+          <article class="project">
+            <h2 class="project__name">{g.name}</h2>
+            <p class="project__tag">{g.tag}</p>
+            <p class="project__body">{g.body}</p>
+          </article>
+        ))}
+      </div>
+    </Section>
+
+    <Section id="looks" eyebrow="How it looks">
+      <div class="zb-shots">
+        {shots.map((s) => (
+          <figure class="zb-shot">
+            {/* TODO(screenshot): replace with <img src={s.src} alt={s.alt} /> */}
+            <div class="zb-shot__slot" role="img" aria-label={s.alt}>
+              <span>Screenshot to come: {s.src}</span>
+            </div>
+            <figcaption>{s.caption}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </Section>
+
+    <Section id="get" eyebrow="Get it">
+      <div class="prose">
+        <p>For Macs with Apple Silicon (M1 or later), macOS 11 or newer.</p>
+        <a class="door__email" href={download}>Download Zenborg</a>
+        <p class="zb-note">
+          <strong>First launch.</strong> The app is signed but not yet
+          notarized, so macOS will refuse to open it the first time. Open
+          System Settings, then Privacy &amp; Security, scroll down and click
+          Open Anyway. Once is enough.
+        </p>
+        <p>
+          <strong>Local-first.</strong> Everything stays on your Mac, in
+          <code>~/.zenborg</code>. No account, no server.
+        </p>
+        <p class="zb-optional">
+          <span class="zb-optional__label">Optional</span>
+          <strong>Use it with Claude.</strong> If you use Claude Code, the
+          Zenborg <a href="https://github.com/equanimitech/zenborg/tree/main/plugin">plugin</a>
+          lets Claude tend the garden with you. Run <code>/onboarding</code>
+          and it will walk you through planting your first garden. The app
+          works fine without it.
+        </p>
+      </div>
+    </Section>
+  </main>
+</Base>
+
+<style>
+  .zb-hero { padding-block-end: calc(var(--section-gap) * 0.5); }
+  .zb-hero__name {
+    font-size: var(--fs-3xl);
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin-bottom: calc(var(--spacing) * 8);
+  }
+  .zb-hero__pitch {
+    font-size: var(--fs-lg);
+    line-height: 1.3;
+    letter-spacing: -0.012em;
+    max-width: 36ch;
+  }
+  .zb-hero__meta {
+    margin-top: calc(var(--spacing) * 8);
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+  .zb-hero__meta a { color: var(--color-text); }
+  /* The gesture matrix reuses .projects; it has no category row, so the h2 opens the cell. */
+  .project__name { font-size: var(--fs-lg); }
+
+  .zb-shots {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: calc(var(--spacing) * 8);
+  }
+  @media (min-width: 768px) {
+    .zb-shots { grid-template-columns: repeat(3, 1fr); gap: calc(var(--spacing) * 6); }
+  }
+  .zb-shot figcaption {
+    margin-top: calc(var(--spacing) * 3);
+    font-size: var(--fs-sm);
+    color: var(--color-muted);
+  }
+  .zb-shot__slot {
+    aspect-ratio: 16 / 10;
+    border: 1px dashed var(--color-faint);
+    display: grid;
+    place-items: center;
+    padding: calc(var(--spacing) * 4);
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    letter-spacing: 0.04em;
+    color: var(--color-muted);
+    overflow-wrap: anywhere;
+  }
+
+  .zb-note { margin-top: calc(var(--spacing) * 8); }
+  .zb-optional {
+    border-left: 1px solid var(--color-accent);
+    padding-left: calc(var(--spacing) * 6);
+    color: var(--color-muted);
+  }
+  .zb-optional__label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: calc(var(--spacing) * 2);
+  }
+  code {
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+    background: var(--color-rule);
+    padding: 0.1em 0.35em;
+    border-radius: 2px;
+  }
+</style>
