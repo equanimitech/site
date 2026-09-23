@@ -1,0 +1,337 @@
+---
+import Base from "../layouts/Base.astro";
+import Section from "../components/Section.astro";
+
+const title = "Zenborg · equanimi.tech";
+const description =
+  "Zenborg is a garden for your attention. Plant, cultivate, harvest.";
+const nots = [
+  ["task manager", "no tasks, no checklists, no \"done\", no projects, no goals, no outcomes"],
+  ["habit tracker", "no streaks, no points, no badges and, definitely, no leaderboards"],
+  ["calendar", "no reminders, no notifications"],
+  ["screen-time app", "no lockouts, no shame, no daily report card"],
+];
+const download = "https://github.com/equanimitech/zenborg/releases/latest";
+
+// Glyphs copied verbatim from zenborg/docs/design/glyphs/*.svg; do not redraw.
+const glyphs = {
+  plant: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M4.5 17h15"/>
+  <circle cx="12" cy="10.5" r="1.9" fill="currentColor" stroke="none"/>
+</svg>`,
+  cultivate: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="12" r="7.5"/>
+  <circle cx="14.5" cy="9.5" r="1.9" fill="currentColor" stroke="none"/>
+</svg>`,
+  harvest: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M4.5 10a7.5 7.5 0 0 0 15 0"/>
+  <circle cx="12" cy="11.5" r="1.9" fill="currentColor" stroke="none"/>
+</svg>`,
+  fence: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M18 10V6H6v12h12v-4"/>
+  <circle cx="12" cy="12" r="1.9" fill="currentColor" stroke="none"/>
+</svg>`,
+};
+
+const gestures = [
+  {
+    name: "Plant",
+    glyph: glyphs.plant,
+    tag: "Habits, people, places.",
+    body: "Areas are the plots of your life; habits are the perennials; each moment is a 1–3 word intention for today. Grow them with the people and places you care about.",
+  },
+  {
+    name: "Cultivate",
+    glyph: glyphs.cultivate,
+    tag: "Tend and fence.",
+    body: "Each day, tend what matters, in phases, not hours. Fence out the weeds (sites, feeds) with a pause, not a lockout.",
+    note: "Fences arrive in an update during your first weeks.",
+  },
+  {
+    name: "Harvest",
+    glyph: glyphs.harvest,
+    tag: "Reflect and tune.",
+    body: "Look back at the season: what you intended, what held, what wilted. Retune rhythms and attitudes, then plant the next season.",
+  },
+];
+
+// TODO(screenshots): drop images in public/zenborg/ and swap each
+// placeholder <div> for <img src={s.src} alt={s.alt} loading="lazy" />.
+const shots = [
+  {
+    src: "/zenborg/day.png",
+    alt: "The day view: moments tended across morning, afternoon and evening.",
+    caption: "The day, in phases.",
+  },
+  {
+    src: "/zenborg/garden.png",
+    alt: "The garden: areas of life with their habits.",
+    caption: "The garden, by area.",
+  },
+  {
+    src: "/zenborg/fence.png",
+    alt: "A fence pausing a visit to a site that was fenced out.",
+    caption: "A pause at the fence.",
+  },
+];
+---
+<Base title={title} description={description} path="/zenborg">
+  <main>
+    <header class="zb-hero">
+      <p class="eyebrow">Zenborg</p>
+      <h1 class="zb-hero__name">A garden for your attention</h1>
+      <p class="zb-hero__pitch">
+        Plant what you want to grow, with the people and places you care
+        about. Cultivate it every day: tend what matters, fence out the weeds.
+        Harvest what it teaches you, and tune the next season.
+      </p>
+      <p class="research-q-inline">"What will I tend to today?"</p>
+      <p class="zb-hero__meta">
+        macOS · Apple Silicon · local-first · <a href="#get">Get it</a>
+      </p>
+    </header>
+
+    <Section id="gardener" eyebrow="You are the gardener">
+      <div class="prose">
+        <p>
+          Your garden is your habit ecosystem, digital and physical: the run
+          and the feed, the call home and the tab you keep reopening.
+        </p>
+        <p>
+          You are responsible for tending it, and you already do. Zenborg is
+          the toolshed. It helps you tend with more consistency, and return
+          with more resilience when something wilts.
+        </p>
+      </div>
+    </Section>
+
+    <Section id="how" eyebrow="How it works">
+      <div class="projects zb-three">
+        {gestures.map((g) => (
+          <article class="project">
+            <h2 class="project__name">
+              <span class="zb-glyph" aria-hidden="true" set:html={g.glyph} />
+              {g.name}
+            </h2>
+            <p class="project__tag">{g.tag}</p>
+            <p class="project__body">{g.body}</p>
+            {g.note && (
+              <p class="zb-gesture-note">
+                <span class="zb-glyph zb-glyph--text" aria-hidden="true" set:html={glyphs.fence} />
+                {g.note}
+              </p>
+            )}
+          </article>
+        ))}
+      </div>
+    </Section>
+
+    <Section id="looks" eyebrow="How it looks">
+      <div class="zb-shots">
+        {shots.map((s) => (
+          <figure class="zb-shot">
+            {/* TODO(screenshot): replace with <img src={s.src} alt={s.alt} /> */}
+            <div class="zb-shot__slot" role="img" aria-label={s.alt}>
+              <span>Screenshot to come: {s.src}</span>
+            </div>
+            <figcaption>{s.caption}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </Section>
+
+    <Section id="not" eyebrow="What this is NOT">
+      <p class="prose">It looks like just another productivity tool, but a garden isn't a factory.</p>
+      <ul class="zb-list">
+        {nots.map(([what, why]) => (
+          <li><strong>it's not a {what}:</strong> {why}</li>
+        ))}
+        <li><strong>it's not a platform:</strong> no accounts, no servers, no analytics, no ads</li>
+      </ul>
+      <p class="prose zb-after">
+        All of these tools can be useful in their own right, for their own
+        purposes. However, we are exploring a mindful alternative to these
+        conventional paradigms.
+      </p>
+    </Section>
+
+    <Section id="why" eyebrow="Why it matters">
+      <div class="note__body prose">
+        <details>
+          <summary>We, the users, are being used.</summary>
+          <p>
+            Our attention is consistently exploited for profit by content
+            platforms Instagram, TikTok, YouTube, Netflix and the like.
+          </p>
+          <p>
+            Attention creates engagement. Engagement drives ad revenue. Ad
+            revenue increases profits.
+          </p>
+          <p>
+            This is the attention economy. Tech giants in a free-for-all to
+            capture our gaze. The tragedy of commons of human attention. Not
+            only are they competing between themselves, but they're also
+            competing with us.
+          </p>
+          <blockquote>
+            <p>
+              "You know, think about it, when you watch a show from Netflix
+              and you get addicted to it, you stay up late at night. We're
+              competing with sleep, on the margin. And so, it's a very large
+              pool of time."
+            </p>
+            <p><cite>Reed Hastings, Netflix CEO</cite></p>
+          </blockquote>
+          <p>
+            We, the users, are their biggest competitors. Investing time in
+            ourselves means not spending it in their platforms.
+          </p>
+          <p class="zb-beats">
+            They profit from our distraction.<br />
+            They profit from our discontentment.<br />
+            They profit from our compulsive consumption of their content.<br />
+            They profit. We languish.
+          </p>
+          <blockquote>
+            <p>
+              "To flourish means to live within an optimal range of human
+              functioning, one that connotes goodness, generativity, growth,
+              and resilience."
+            </p>
+            <p><cite>Fredrickson &amp; Losada, 2005</cite></p>
+          </blockquote>
+          <p>
+            Underneath the garden is one question: "Where will I place my
+            consciousness today?"
+          </p>
+          <p>
+            Zenborg is my exploration into mindful technology. A way to
+            leverage software and AI as a driver for flourishing.
+          </p>
+        </details>
+      </div>
+    </Section>
+
+    <Section id="get" eyebrow="Get it">
+      <div class="prose">
+        <p>For Macs with Apple Silicon (M1 or later), macOS 11 or newer.</p>
+        <a class="door__email" href={download}>Download Zenborg</a>
+        <p class="zb-note">
+          <strong>First launch.</strong> The app is signed but not yet
+          notarized, so macOS will refuse to open it the first time. Open
+          System Settings, then Privacy &amp; Security, scroll down and click
+          Open Anyway. Once is enough.
+        </p>
+        <p>
+          <strong>Local-first.</strong> Everything stays on your Mac, in
+          <code>~/.zenborg</code>. No account, no server.
+        </p>
+      </div>
+    </Section>
+
+    <Section id="next" eyebrow="What's next">
+      <div class="prose">
+        <p>
+          You're one of the first few people trying this. In a week or two,
+          I'll ask you how it's going.
+        </p>
+        <p>
+          My goal is to answer: "How can we build software and AI aligned
+          with human flourishing?"
+        </p>
+        <blockquote>
+          <p lang="fr">« Il faut cultiver notre jardin. »</p>
+          <p>"One must cultivate one's garden."</p>
+          <p><cite>Voltaire, Candide, 1759</cite></p>
+        </blockquote>
+      </div>
+    </Section>
+  </main>
+</Base>
+
+<style>
+  .zb-hero { padding-block-end: calc(var(--section-gap) * 0.5); }
+  .zb-hero__name {
+    font-size: var(--fs-3xl);
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin-bottom: calc(var(--spacing) * 8);
+  }
+  .zb-hero__pitch {
+    font-size: var(--fs-lg);
+    line-height: 1.3;
+    letter-spacing: -0.012em;
+    max-width: 36ch;
+  }
+  .zb-hero__meta {
+    margin-top: calc(var(--spacing) * 8);
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+  .zb-hero__meta a { color: var(--color-text); }
+  /* The gesture matrix reuses .projects; it has no category row, so the h2 opens the cell. */
+  .project__name { font-size: var(--fs-lg); }
+
+  .zb-shots {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: calc(var(--spacing) * 8);
+  }
+  @media (min-width: 768px) {
+    .zb-shots { grid-template-columns: repeat(3, 1fr); gap: calc(var(--spacing) * 6); }
+  }
+  .zb-shot figcaption {
+    margin-top: calc(var(--spacing) * 3);
+    font-size: var(--fs-sm);
+    color: var(--color-muted);
+  }
+  .zb-shot__slot {
+    aspect-ratio: 16 / 10;
+    border: 1px dashed var(--color-faint);
+    display: grid;
+    place-items: center;
+    padding: calc(var(--spacing) * 4);
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    letter-spacing: 0.04em;
+    color: var(--color-muted);
+    overflow-wrap: anywhere;
+  }
+
+  .zb-note { margin-top: calc(var(--spacing) * 8); }
+  .zb-list {
+    margin-top: calc(var(--spacing) * 6);
+    max-width: var(--measure);
+    border-bottom: 1px solid var(--color-rule);
+  }
+  .zb-list li {
+    border-top: 1px solid var(--color-rule);
+    padding-block: calc(var(--spacing) * 3);
+  }
+  @media (min-width: 768px) {
+    .zb-three { grid-template-columns: repeat(3, 1fr); }
+  }
+  .project__name { display: flex; align-items: center; gap: 0.4em; }
+  .zb-glyph { display: inline-flex; color: var(--color-text); flex-shrink: 0; }
+  .zb-glyph :global(svg) { width: 24px; height: 24px; }
+  .zb-glyph--text { color: inherit; vertical-align: -0.15em; }
+  .zb-glyph--text :global(svg) { width: 1em; height: 1em; }
+  .zb-gesture-note { font-size: var(--fs-sm); color: var(--color-muted); }
+  .zb-list strong { font-weight: 500; }
+  .zb-after { margin-top: calc(var(--spacing) * 6); color: var(--color-muted); }
+  .zb-hero .research-q-inline { margin-top: calc(var(--spacing) * 8); }
+  .zb-beats { font-size: var(--fs-md); }
+  cite { font-style: normal; font-family: var(--font-mono); font-size: var(--fs-xs); letter-spacing: 0.04em; }
+  code {
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+    background: var(--color-rule);
+    padding: 0.1em 0.35em;
+    border-radius: 2px;
+  }
+</style>
