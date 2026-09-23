@@ -4,16 +4,22 @@ import Section from "../components/Section.astro";
 
 const title = "Zenborg · equanimi.tech";
 const description =
-  "Zenborg is a garden for your attention. A local-first macOS app.";
+  "Make most moments matter. Zenborg is an intention orchestration system for budgeting moments toward personal flourishing.";
 const pitch =
   "Zenborg is a garden for your attention: plant what you want to grow, grow it with the people and places you care about, fence out the weeds, and return to tend it every day.";
+const nots = [
+  ["task manager", "no tasks, no checklists, no \"done\", no projects, no goals, no outcomes"],
+  ["habit tracker", "no streaks, no points, no badges and, definitely, no leaderboards"],
+  ["calendar", "no reminders, no notifications"],
+  ["screen-time app", "no lockouts, no shame, no daily report card"],
+];
 const download = "https://github.com/equanimitech/zenborg/releases/latest";
 
 const gestures = [
   {
     name: "🌱 Plant",
     tag: "What you want to grow.",
-    body: "Areas are the plots of your life. Habits are perennials. Moments are today's intentions, one to three words. Cycles are seasons. A better habit tracker: intentions, no streaks, no checkboxes.",
+    body: "Areas are the plots of your life. Habits are perennials. Moments are today's intentions, one to three words. Cycles are seasons.",
   },
   {
     name: "🤝 Companion",
@@ -23,7 +29,7 @@ const gestures = [
   {
     name: "🚧 Fence",
     tag: "Keep the weeds out.",
-    body: "Fence out the sites and feeds that crowd the garden. A calmer screen-time tool: a pause and some friction at the boundary, not lockouts and shame.",
+    body: "Fence out the sites and feeds that crowd the garden. A pause and some friction at the boundary, not lockouts and shame.",
   },
   {
     name: "🪴 Tend",
@@ -55,15 +61,21 @@ const shots = [
 <Base title={title} description={description} path="/zenborg">
   <main>
     <header class="zb-hero">
-      <p class="eyebrow">Awareness · a working project</p>
-      <h1 class="zb-hero__name">Zenborg</h1>
-      <p class="zb-hero__pitch">{pitch}</p>
+      <p class="eyebrow">Zenborg</p>
+      <h1 class="zb-hero__name">Make most moments matter</h1>
+      <p class="zb-hero__pitch">
+        Zenborg is an intention orchestration system for budgeting moments
+        toward personal flourishing. It's a simple tool to make your
+        intentions explicit, tangible and adaptable throughout the day.
+      </p>
+      <p class="research-q-inline">"Where will I place my consciousness today?"</p>
       <p class="zb-hero__meta">
         macOS · Apple Silicon · local-first · <a href="#get">Get it</a>
       </p>
     </header>
 
-    <Section id="what" eyebrow="What it is">
+    <Section id="how" eyebrow="How it works">
+      <p class="prose">{pitch}</p>
       <div class="projects">
         {gestures.map((g) => (
           <article class="project">
@@ -89,6 +101,85 @@ const shots = [
       </div>
     </Section>
 
+    <Section id="limits" eyebrow="Liberating limits">
+      <p class="prose">
+        We tend to see limits as a problem. If we are limited, we aren't
+        free. If we aren't free, well, that's just plain bad.
+      </p>
+      <ul class="zb-list">
+        <li>3 words to a moment</li>
+        <li>phases, not hours</li>
+      </ul>
+    </Section>
+
+    <Section id="not" eyebrow="What this is NOT">
+      <p class="prose">It looks like just another productivity tool, but...</p>
+      <ul class="zb-list">
+        {nots.map(([what, why]) => (
+          <li><strong>it's not a {what}:</strong> {why}</li>
+        ))}
+        <li><strong>it's not a platform:</strong> no accounts, no servers, no analytics, no ads</li>
+      </ul>
+      <p class="prose zb-after">
+        All of these tools can be useful in their own right, for their own
+        purposes. However, we are exploring a mindful alternative to these
+        conventional paradigms.
+      </p>
+    </Section>
+
+    <Section id="why" eyebrow="Why it matters">
+      <div class="note__body prose">
+        <details>
+          <summary>We, the users, are being used.</summary>
+          <p>
+            Our attention is consistently exploited for profit by content
+            platforms Instagram, TikTok, YouTube, Netflix and the like.
+          </p>
+          <p>
+            Attention creates engagement. Engagement drives ad revenue. Ad
+            revenue increases profits.
+          </p>
+          <p>
+            This is the attention economy. Tech giants in a free-for-all to
+            capture our gaze. The tragedy of commons of human attention. Not
+            only are they competing between themselves, but they're also
+            competing with us.
+          </p>
+          <blockquote>
+            <p>
+              "You know, think about it, when you watch a show from Netflix
+              and you get addicted to it, you stay up late at night. We're
+              competing with sleep, on the margin. And so, it's a very large
+              pool of time."
+            </p>
+            <p><cite>Reed Hastings, Netflix CEO</cite></p>
+          </blockquote>
+          <p>
+            We, the users, are their biggest competitors. Investing time in
+            ourselves means not spending it in their platforms.
+          </p>
+          <p class="zb-beats">
+            They profit from our distraction.<br />
+            They profit from our discontentment.<br />
+            They profit from our compulsive consumption of their content.<br />
+            They profit. We languish.
+          </p>
+          <blockquote>
+            <p>
+              "To flourish means to live within an optimal range of human
+              functioning, one that connotes goodness, generativity, growth,
+              and resilience."
+            </p>
+            <p><cite>Fredrickson &amp; Losada, 2005</cite></p>
+          </blockquote>
+          <p>
+            Zenborg is my exploration into mindful technology. A way to
+            leverage software and AI as a driver for flourishing.
+          </p>
+        </details>
+      </div>
+    </Section>
+
     <Section id="get" eyebrow="Get it">
       <div class="prose">
         <p>For Macs with Apple Silicon (M1 or later), macOS 11 or newer.</p>
@@ -103,13 +194,18 @@ const shots = [
           <strong>Local-first.</strong> Everything stays on your Mac, in
           <code>~/.zenborg</code>. No account, no server.
         </p>
-        <p class="zb-optional">
-          <span class="zb-optional__label">Optional</span>
-          <strong>Use it with Claude.</strong> If you use Claude Code, the
-          Zenborg <a href="https://github.com/equanimitech/zenborg/tree/main/plugin">plugin</a>
-          lets Claude tend the garden with you. Run <code>/onboarding</code>
-          and it will walk you through planting your first garden. The app
-          works fine without it.
+      </div>
+    </Section>
+
+    <Section id="next" eyebrow="What's next">
+      <div class="prose">
+        <p>
+          You're one of the first few people trying this. In a week or two,
+          I'll ask you how it's going.
+        </p>
+        <p>
+          My goal is to answer: "How can we build software and AI aligned
+          with human flourishing?"
         </p>
       </div>
     </Section>
@@ -171,20 +267,20 @@ const shots = [
   }
 
   .zb-note { margin-top: calc(var(--spacing) * 8); }
-  .zb-optional {
-    border-left: 1px solid var(--color-accent);
-    padding-left: calc(var(--spacing) * 6);
-    color: var(--color-muted);
+  .zb-list {
+    margin-top: calc(var(--spacing) * 6);
+    max-width: var(--measure);
+    border-bottom: 1px solid var(--color-rule);
   }
-  .zb-optional__label {
-    display: block;
-    font-family: var(--font-mono);
-    font-size: var(--fs-xs);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--color-accent);
-    margin-bottom: calc(var(--spacing) * 2);
+  .zb-list li {
+    border-top: 1px solid var(--color-rule);
+    padding-block: calc(var(--spacing) * 3);
   }
+  .zb-list strong { font-weight: 500; }
+  .zb-after { margin-top: calc(var(--spacing) * 6); color: var(--color-muted); }
+  .zb-hero .research-q-inline { margin-top: calc(var(--spacing) * 8); }
+  .zb-beats { font-size: var(--fs-md); }
+  cite { font-style: normal; font-family: var(--font-mono); font-size: var(--fs-xs); letter-spacing: 0.04em; }
   code {
     font-family: var(--font-mono);
     font-size: 0.9em;
