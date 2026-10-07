@@ -9,4 +9,7 @@ export default defineConfig({
     inlineStylesheets: "always",
   },
   devToolbar: { enabled: false },
+  redirects: {
+    "/zenborg": "/projects/zenborg",
+  },
 });

@@ -1,6 +1,6 @@
 ---
-import Base from "../layouts/Base.astro";
-import Section from "../components/Section.astro";
+import Base from "../../layouts/Base.astro";
+import Section from "../../components/Section.astro";
 
 const title = "Zenborg · equanimi.tech";
 const description =
@@ -8,7 +8,7 @@ const description =
 const nots = [
   ["task manager", "no tasks, no checklists, no \"done\", no projects, no goals, no outcomes"],
   ["habit tracker", "no streaks, no points, no badges and, definitely, no leaderboards"],
-  ["calendar", "no reminders, no notifications"],
+  ["calendar", "no reminders, no badges, no sounds"],
   ["screen-time app", "no lockouts, no shame, no daily report card"],
 ];
 const download = "https://github.com/equanimitech/zenborg/releases/latest";
@@ -76,7 +76,7 @@ const shots = [
   },
 ];
 ---
-<Base title={title} description={description} path="/zenborg">
+<Base title={title} description={description} path="/projects/zenborg">
   <main>
     <header class="zb-hero">
       <p class="eyebrow">Zenborg</p>
@@ -89,6 +89,11 @@ const shots = [
       <p class="research-q-inline">"What will I tend to today?"</p>
       <p class="zb-hero__meta">
         macOS · Apple Silicon · local-first · <a href="#get">Get it</a>
+      </p>
+      <p class="zb-hero__aside">
+        Works on its own. Also works with Claude (Claude Code or Claude
+        Desktop) for daily rituals; the Claude Code plugin needs Node 22.7 or
+        newer.
       </p>
     </header>
 
@@ -157,59 +162,12 @@ const shots = [
     </Section>
 
     <Section id="why" eyebrow="Why it matters">
-      <div class="note__body prose">
-        <details>
-          <summary>We, the users, are being used.</summary>
-          <p>
-            Our attention is consistently exploited for profit by content
-            platforms Instagram, TikTok, YouTube, Netflix and the like.
-          </p>
-          <p>
-            Attention creates engagement. Engagement drives ad revenue. Ad
-            revenue increases profits.
-          </p>
-          <p>
-            This is the attention economy. Tech giants in a free-for-all to
-            capture our gaze. The tragedy of commons of human attention. Not
-            only are they competing between themselves, but they're also
-            competing with us.
-          </p>
-          <blockquote>
-            <p>
-              "You know, think about it, when you watch a show from Netflix
-              and you get addicted to it, you stay up late at night. We're
-              competing with sleep, on the margin. And so, it's a very large
-              pool of time."
-            </p>
-            <p><cite>Reed Hastings, Netflix CEO</cite></p>
-          </blockquote>
-          <p>
-            We, the users, are their biggest competitors. Investing time in
-            ourselves means not spending it in their platforms.
-          </p>
-          <p class="zb-beats">
-            They profit from our distraction.<br />
-            They profit from our discontentment.<br />
-            They profit from our compulsive consumption of their content.<br />
-            They profit. We languish.
-          </p>
-          <blockquote>
-            <p>
-              "To flourish means to live within an optimal range of human
-              functioning, one that connotes goodness, generativity, growth,
-              and resilience."
-            </p>
-            <p><cite>Fredrickson &amp; Losada, 2005</cite></p>
-          </blockquote>
-          <p>
-            Underneath the garden is one question: "Where will I place my
-            consciousness today?"
-          </p>
-          <p>
-            Zenborg is my exploration into mindful technology. A way to
-            leverage software and AI as a driver for flourishing.
-          </p>
-        </details>
+      <div class="prose">
+        <p>
+          Our attention is the product the attention economy sells. Zenborg
+          is my exploration into technology that helps us place it ourselves.
+        </p>
+        <p><a href="/notes/we-the-users-are-being-used">Read why: We, the users, are being used.</a></p>
       </div>
     </Section>
 
@@ -274,6 +232,7 @@ const shots = [
     color: var(--color-muted);
   }
   .zb-hero__meta a { color: var(--color-text); }
+  .zb-hero__aside { margin-top: calc(var(--spacing) * 2); font-size: var(--fs-sm); color: var(--color-muted); max-width: var(--measure); }
   /* The gesture matrix reuses .projects; it has no category row, so the h2 opens the cell. */
   .project__name { font-size: var(--fs-lg); }
 
@@ -326,7 +285,6 @@ const shots = [
   .zb-list strong { font-weight: 500; }
   .zb-after { margin-top: calc(var(--spacing) * 6); color: var(--color-muted); }
   .zb-hero .research-q-inline { margin-top: calc(var(--spacing) * 8); }
-  .zb-beats { font-size: var(--fs-md); }
   cite { font-style: normal; font-family: var(--font-mono); font-size: var(--fs-xs); letter-spacing: 0.04em; }
   code {
     font-family: var(--font-mono);
